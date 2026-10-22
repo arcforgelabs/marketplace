@@ -1,6 +1,6 @@
 ---
 name: replit-github
-description: "Wire a Replit project to a GitHub repo so the Replit Agent can push, open PRs, and pull main; diagnose or repair Replit/GitHub history drift; set up new Replit projects or accounts against arcforgelabs repos."
+description: "Connect a Replit project to GitHub (push, PRs, pull main) and repair Replit/GitHub history drift."
 ---
 
 # Replit ↔ GitHub
@@ -27,6 +27,8 @@ Consequences:
   Task sandboxes each get their own; do git work in the *main version*.
 - Replit auto-commits ("Published your App") on the current branch, so
   feature work must live on branches to keep `main` fast-forwardable.
+  `github-sync.sh pull` drops local-only commits that change no files (the
+  usual publish commits) before fast-forwarding; real changes still stop it.
 - A publish is not live from GitHub; the workspace must pull first.
 
 ## Target state for every wired project
@@ -56,6 +58,8 @@ and pull after merge.
   `git merge-base` between workspace and GitHub is empty: `references/repair.md`
 - Supervising from outside Replit (Claude Code + Replit MCP + browser):
   `references/supervising.md`
+- Giving a Replit project an Arc Forge theme (from arcforgelabs/themes, not
+  Replit design systems): `references/themes.md`
 
 ## Gotchas
 
@@ -63,8 +67,18 @@ and pull after merge.
   `arcforgelabs`), not the personal account. One token may cover several
   repos, but each Replit project needs the secret added separately.
 - Git tool fetch sometimes reports UNAUTHENTICATED; "Sync Changes" retries fine.
-- Driving the Replit Shell through browser automation is unreliable; ask the
-  Agent (MCP `ask_question`) to run commands and report output instead.
+  After the Arc Forge Website moved into the team workspace, its Git tool
+  returned UNAUTHENTICATED on fetch while the project's `GITHUB_TOKEN` secret
+  still worked (reported 2026-10-12; not re-verified). In a team workspace,
+  do not rely on the Git tool: have the project Agent run
+  `scripts/github-sync.sh`.
+- The Replit MCP connector only sees the personal workspace. For a project in
+  a team workspace (Arc Forge Labs) it is refused with "account or
+  organization restriction"; supervise that project in the browser.
+- Never send synthetic keystrokes to Replit in a browser unless
+  `document.activeElement` is the editor you mean. Stray keys open the command
+  palette, and Return submits whatever it shows: one stray run submitted the
+  one-time "Change your username" form. See `references/supervising.md`.
 - GitHub rejects pushes authored with a private email; use the
   `<id>+<user>@users.noreply.github.com` address.
 - The Agent's `.agents/skills/*` are versioned files, so the project skill

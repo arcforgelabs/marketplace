@@ -1,0 +1,25 @@
+{
+  "sourceRepo": "arcforgelabs/tools",
+  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
+  "sourcePath": "components/skills/building-plugins",
+  "kind": "skill",
+  "version": "0.1.0",
+  "files": {
+    ".claude-plugin/plugin.json": "bd81b79dda329026e4308fcfe07046312a231cbab947678bee083789ba833b96",
+    "README.md": "aacac0ee54d77d624e57a230522721ee38af2bc0fe01660a27939afeb81301e8",
+    "package.json": "b2bb6ecfd80b986d8bc237ce667208d5f14cc959e318a2025cc7c0375fa730c2",
+    "plugin.json": "fb407e1d1b8a0694d9d29195c5037bc3c13fc2a56279f2c6b0b8d6ddfc426c65",
+    "skills/building-plugins/README.md": "08794ac7a46378713bd571d98b177fc20b0bacc64c7aae1ba491de56445163da",
+    "skills/building-plugins/SKILL.md": "7b9dcaf9e7f6b8aad539e33f7ba0b938413f6ec09993fd95b18ba7f7fdadb440",
+    "skills/building-plugins/assets/manifest-examples/aws-toolkit.json": "8411968642b2cec249a47504fdca5c3371a71cd1fcea53d38f23dfe9046787d6",
+    "skills/building-plugins/assets/manifest-examples/minimal.json": "75fe3d84fbe2e7b8fc9e75d2bdbdab3f7c387026ad0034355888a42eb72f6f55",
+    "skills/building-plugins/assets/manifest-examples/testing-suite.json": "b77bd68fc32221d5adf6de3f62d037ef9b5fdd473b43709eeb5c2e7a7cf8c28f",
+    "skills/building-plugins/assets/marketplace-template.json": "c092505dc12c82caf53e2a27f341dd97cc0e88cf7278acf78cdcec7bb7815a01",
+    "skills/building-plugins/assets/plugin-template/.claude-plugin/plugin.json": "b41c6d1a938bc456e0a5b8390be8f6ada28afec0ecc048cf0ed30a5e42ef4d1b",
+    "skills/building-plugins/assets/plugin-template/README.md": "af02cd8d1d0f318a488024a6e228638f6f004a044554e9a28cf2f404dfb3fa18",
+    "skills/building-plugins/assets/plugin-template/commands/example.md": "a939063e7e13c26271ab672fcef18f79704624ff708aaef601091175035d25be",
+    "skills/building-plugins/references/manifest_schema.md": "69e4efa0dc974d893a5673a32ffe52c525fc457728aad53f555b7e97ebe65581",
+    "skills/building-plugins/references/marketplace_guide.md": "4b9f4baca5d677c005b2c22e557ae3fb16d5469823e2f102112e2486e30a09b9",
+    "skills/building-plugins/references/official_plugin_structure.md": "8d749402788d8d56cf4f989fe06dca33fc368576b53a60a1b810879b5d8d951e"
+  }
+}

@@ -1,22 +1,23 @@
 {
-  "sourceRepo": "arcforgelabs/arc-forge-tools",
-  "sourceCommit": "1c563b362a47652f11a880f45b842f149d677d23",
+  "sourceRepo": "arcforgelabs/tools",
+  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
   "sourcePath": "components/skills/replit-github",
   "kind": "skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": {
-    ".claude-plugin/plugin.json": "2ec93f447b3f8039c71152f92a6725780cdd9f714959e656368b341f0f957ce7",
-    ".codex-plugin/plugin.json": "7fbdd8fd98559a492ef71c1aa1932f509dad09db5fb4bbc61985a9434772f636",
-    ".cursor-plugin/plugin.json": "161d9dca837036644d6e4107763f799757360ac72dcbd852790d328c60e38db3",
-    "README.md": "3a68cafebca24c5664f65a645344382588935a226b7fd8eb221763947235418a",
-    "package.json": "8c15388f2cd628897db39e9197880afc25328714a75d53f470678475eb68fae1",
-    "skills/replit-github/README.md": "66f2af881becdf1d9849c6219f5d4965a719401b9c15c324d29e3dcd22ca60be",
-    "skills/replit-github/SKILL.md": "fa64150ee102943c343d7551da5d5306fd7b745a01c5d1622b8d5ef350325b6e",
+    ".claude-plugin/plugin.json": "e936a92b7e3caa612d159dd722cf3172368989ade97ec2f7541d78543f70b1b5",
+    "README.md": "e64bd95aa7ebfd7bae661617fa77e26b5d174703a2b3ea38b7492a5f1726402d",
+    "package.json": "e148958f73d7dea2c8b169fdc08a081f13338b1e69609edea78ecce89970de2f",
+    "plugin.json": "47c6dd9309491f65616f5389823f9782c6f878bc56cf9cd63171706ab10ebd0c",
+    "skills/replit-github/README.md": "d1bfec475384c75bef9fe79a7a61d2b44f5c3854d3797cd7a8b167c332ea465f",
+    "skills/replit-github/SKILL.md": "a0e84039c6af4ba6e83b20e7038965269c4024e321da62d4f269805a4af838ff",
     "skills/replit-github/assets/git-credential-github.sh": "1d8c4178aa47250d01f71fbee5c120f4f7ec1cdb3183622195f70f6fc2d13a75",
-    "skills/replit-github/assets/github-sync.sh": "c2103f52e7f71873dc1c63af8153481d2741520d7ff3762aa7df368e5bb300ea",
-    "skills/replit-github/assets/replit-project-skill.SKILL.md": "2afeea5989266f99fae89a57ca323bac01ba0ecbc9e8e92bca8ee0eb1957bb22",
+    "skills/replit-github/assets/github-sync.sh": "d7a7d786d60997804ee854a29cb4836859d9744bc1af007b1df8f1e98efb7bdc",
+    "skills/replit-github/assets/replit-project-skill.SKILL.md": "cd91611fa88c3182e09c2ca6bedc6cffcba3e7394cf20a35fa7546284cd806d1",
     "skills/replit-github/references/repair.md": "caafe26e09420a7127253b57366efbbccb4df0596117459ad9dc38a518b14290",
     "skills/replit-github/references/setup.md": "dd791232a0b9a5224268a172c2b2af1d2a8e127bf9ffd8405a8ec72e873efca9",
-    "skills/replit-github/references/supervising.md": "78d259a00c609d6b8070b9e8a55d1e20bd171cd80b7e5edfcd28e4a750990bfd"
+    "skills/replit-github/references/supervising.md": "f0e15e7b4624d256a9a3a5159b2edfabcce2c42b07d66afa77e019e5326d8505",
+    "skills/replit-github/references/themes.md": "b23aea8679740e9c73ebf8857a5fac08385c773330f165059e3e18d8c9ec4dd9",
+    "skills/replit-github/tests/test_github_sync_pull.sh": "61c7592ef59052c320c5b6d7f56059e229660e6571e52feebb347683cc1bd68b"
   }
 }

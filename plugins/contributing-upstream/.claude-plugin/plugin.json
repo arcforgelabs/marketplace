@@ -1,0 +1,17 @@
+{
+  "name": "contributing-upstream",
+  "version": "0.1.0",
+  "description": "Prepare upstream open source issues, PRs, and comments.",
+  "author": {
+    "name": "Arc Forge Labs",
+    "email": "support@arcforge.au"
+  },
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/contributing-upstream",
+  "repository": "https://github.com/arcforgelabs/marketplace",
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "contributing",
+    "upstream"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "sourceRepo": "arcforgelabs/tools",
+  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
+  "sourcePath": "components/skills/scaffolding-docs",
+  "kind": "skill",
+  "version": "0.1.0",
+  "files": {
+    ".claude-plugin/plugin.json": "c4bc2a58cb511b914ef850db054f6a6c378649afb422996cf4274b5db7dfb9f2",
+    "README.md": "44c41fdb97ccca3fa740af252aae6dd825e643c411428f2d449ff599c86357fa",
+    "package.json": "a7f77bbea140a6109504c37c65e753a084552e93156ce16b688e017746050229",
+    "plugin.json": "6d01d223464306bd3c1a3889bf418428b424581dc2b84207c23b9d3367af742b",
+    "skills/scaffolding-docs/README.md": "0da9809958ddae4522f96abf593754c08a927e7adfbc5b2acb8331f3f045c6b9",
+    "skills/scaffolding-docs/SKILL.md": "d07900aac7af11868992746c808b1bb49773dc83e02dde48bedd23e60c31e6b7",
+    "skills/scaffolding-docs/assets/templates/ARCHITECTURE.md.template": "d4574a7cfa085fe07c30e0d38854ed78adaa9bff503e4203386f0d7b5ec818ec",
+    "skills/scaffolding-docs/assets/templates/CHANGELOG.md.template": "4ef7e8999d3d7f41eb4bf308b65583c2242bf5f9a2acc17f5a865d57effa08ef",
+    "skills/scaffolding-docs/assets/templates/CLAUDE.md.template": "dcdbb92efbeda256e66a50c5331ea9a16e87c5cfddb701390b7078b41fa5cd6d",
+    "skills/scaffolding-docs/assets/templates/CONTRIBUTING.md.template": "729bd5aa27eee46e927df54d68fc2995af9651296d1f34bfc3051f35beb6b8e2",
+    "skills/scaffolding-docs/assets/templates/DESIGN.md.template": "ba76741ca39b77f4f19797edcea1df7530417f90b5abcb88a0a00c9a2ab3f54e",
+    "skills/scaffolding-docs/assets/templates/DEVELOPMENT.md.template": "a052ebd1551810e5d8a8d3d46a9722c50bec91c8410e748ab8e2a6df980c8cd5",
+    "skills/scaffolding-docs/assets/templates/FORK.template.md": "572a5c6e291d6a08e4dbd769b3b5ede7961d87407dc9502865790c0e0a8f8582",
+    "skills/scaffolding-docs/assets/templates/ISSUES.md.template": "ff1c27e3611e6ebd2bd5282193112b89d96096244acfc170623ed31cb07f23ed",
+    "skills/scaffolding-docs/assets/templates/PROGRESS.md.template": "cb5a5799c1f05aefeaa0a387fe4e346dab7d3d52f874a9f38a7ab9a291b04e85",
+    "skills/scaffolding-docs/assets/templates/README.md.template": "7ab3f62decedb3a8f107f324907b3c06f745f6592ab851e98bdf1b7691529b94",
+    "skills/scaffolding-docs/assets/templates/STATUS.md.template": "63c2201e74010d245c3573a2fbc8902bcce1cd96079be77549bb3544c1d56552",
+    "skills/scaffolding-docs/assets/templates/VISION.md.template": "ce6a3cbfe5bbb47c71fa396924368e2cb2f02e4875920b868a060edf7fddd7d9",
+    "skills/scaffolding-docs/assets/templates/fork/PATCHES.template.md": "3e1b388efd018c606495c4c024fe2424b9800ce4b6357d01e1f2303bf90c44bb",
+    "skills/scaffolding-docs/assets/templates/fork/SYNC.template.md": "5aea8ac8e521efe10b10115073944c3a9f653e8ef02992d96a780a5e3574e616",
+    "skills/scaffolding-docs/assets/templates/fork/TESTING.template.md": "86f2193b824bee1d7a2b606172e6144b91b14168f3d00591176d169f23904788",
+    "skills/scaffolding-docs/references/audit-checklist.md": "bbb149bded757b33decda9f3beef90640e62b68046e7993b51ed47512b533186",
+    "skills/scaffolding-docs/references/common-fixes.md": "19f63511b92eb293fa96a7e89d0300d61e739821900dc26723cbe290f6e163aa",
+    "skills/scaffolding-docs/references/pattern-examples.md": "e7f845633a91bd95acfe386b1766618999a723ab5c536ebe262d200d3d73588f"
+  }
+}

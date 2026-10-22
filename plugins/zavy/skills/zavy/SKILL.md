@@ -1,6 +1,6 @@
 ---
 name: zavy
-description: "Zavy/Zavy360 knowledge: where data lives, reports vs operational pages, exports, notes/billing/recalls, and optional browser inspection."
+description: "Zavy/Zavy360 knowledge: where data lives, reports, exports, notes, billing, recalls, inspection."
 ---
 
 # Zavy

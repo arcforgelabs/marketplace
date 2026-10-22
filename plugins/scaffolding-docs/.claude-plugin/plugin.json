@@ -1,0 +1,17 @@
+{
+  "name": "scaffolding-docs",
+  "version": "0.1.0",
+  "description": "Scaffold project docs: templates, fork docs, repo structure.",
+  "author": {
+    "name": "Arc Forge Labs",
+    "email": "support@arcforge.au"
+  },
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/scaffolding-docs",
+  "repository": "https://github.com/arcforgelabs/marketplace",
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "scaffolding",
+    "docs"
+  ]
+}

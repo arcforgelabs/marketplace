@@ -1,0 +1,7 @@
+{
+  "name": "my-plugin",
+  "version": "1.0.0",
+  "description": "Brief description of what this plugin does",
+  "author": "Your Name",
+  "license": "MIT"
+}

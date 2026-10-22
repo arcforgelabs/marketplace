@@ -1,0 +1,18 @@
+{
+  "sourceRepo": "arcforgelabs/tools",
+  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
+  "sourcePath": "components/skills/agent-handoff",
+  "kind": "skill",
+  "version": "0.1.0",
+  "files": {
+    ".claude-plugin/plugin.json": "5dcfcf5bf4109a2051ef3582635ce8edf924436b7b1bad4c21df60689bcdb554",
+    "README.md": "159c8efee73b19febe9dc7b0ff127c6cebebe7a9720e6403ac39dac25e89afe9",
+    "package.json": "475c1214ce8d877f4c7a99f0689b9f8287ef7e3eff52976b4c364681bc82a3b1",
+    "plugin.json": "50e6c0680d1c2b055c9be728cda0d694e359f91379ea92f70f772f1aa401bfda",
+    "skills/agent-handoff/SKILL.md": "65255ec3b65bacac07b557965e9058ca79003caa79552f1e9acbd690a058fbea",
+    "skills/agent-handoff/references/adapters.md": "ca9944f19122bcaadc565c5f7445bbca4e92d8a38ed00283dfe2e85ad3374705",
+    "skills/agent-handoff/references/brief.md": "cdae6eada24fd1e57a6dbb7010aa07014b5f8e6d60bee28ab060d9c43a9942e1",
+    "skills/agent-handoff/references/merge-gate.md": "18b2dc32b79f90fff9f9c18e661c4e8612198b3590efe025d314ae726e147315",
+    "skills/agent-handoff/scripts/claim-check.sh": "ebd412d45f13e8027fa93016ed878f4ad2c3be895f5d10308a8e1bc0a35bfe12"
+  }
+}

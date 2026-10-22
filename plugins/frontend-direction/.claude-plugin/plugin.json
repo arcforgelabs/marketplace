@@ -1,0 +1,17 @@
+{
+  "name": "frontend-direction",
+  "version": "0.1.0",
+  "description": "Direct frontend scope, product fit, visual direction, and rendered-design critique.",
+  "author": {
+    "name": "Arc Forge Labs",
+    "email": "support@arcforge.au"
+  },
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/frontend-direction",
+  "repository": "https://github.com/arcforgelabs/marketplace",
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "frontend",
+    "direction"
+  ]
+}

@@ -10,6 +10,7 @@ repairing projects whose Replit and GitHub histories have already diverged.
 - `references/setup.md` — new project / repo / account checklist
 - `references/repair.md` — reconcile unrelated histories without rewriting
 - `references/supervising.md` — driving it from Claude Code/Codex via MCP + browser
+- `references/themes.md` — Arc Forge themes in Replit projects (from arcforgelabs/themes)
 - `assets/github-sync.sh`, `assets/git-credential-github.sh`,
   `assets/replit-project-skill.SKILL.md` — files to copy into the target repo
   (repo-agnostic: repo and default branch are detected; override with
