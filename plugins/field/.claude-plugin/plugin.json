@@ -6,8 +6,8 @@
     "name": "Arc Forge Labs",
     "email": "support@arcforge.au"
   },
-  "homepage": "https://github.com/arcforgelabs/agent-marketplace/tree/main/plugins/field",
-  "repository": "https://github.com/arcforgelabs/agent-marketplace",
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/field",
+  "repository": "https://github.com/arcforgelabs/marketplace",
   "license": "MIT",
   "keywords": [
     "field",

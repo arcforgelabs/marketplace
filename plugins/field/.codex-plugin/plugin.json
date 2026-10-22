@@ -7,8 +7,8 @@
     "email": "support@arcforge.au",
     "url": "https://github.com/arcforgelabs"
   },
-  "homepage": "https://github.com/arcforgelabs/agent-marketplace/tree/main/plugins/field",
-  "repository": "https://github.com/arcforgelabs/agent-marketplace",
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/field",
+  "repository": "https://github.com/arcforgelabs/marketplace",
   "license": "MIT",
   "keywords": [
     "field",
@@ -27,7 +27,7 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "https://github.com/arcforgelabs/agent-marketplace/tree/main/plugins/field",
+    "websiteURL": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/field",
     "defaultPrompt": [
       "Show me the current Field email templates.",
       "Check a Field job before I change its invoice.",

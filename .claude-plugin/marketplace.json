@@ -6,24 +6,23 @@
   },
   "metadata": {
     "description": "Arc Forge agent tools and operating skills",
-    "version": "0.1.2",
-    "pluginRoot": "plugins"
+    "version": "0.1.2"
   },
   "plugins": [
     {
       "name": "field",
-      "source": "field",
+      "source": "./plugins/field",
       "description": "Manage Field jobs, quotes, invoices, email templates, and catalog workflows",
       "version": "0.1.2",
       "author": {
         "name": "Arc Forge Labs"
       },
-      "repository": "https://github.com/arcforgelabs/agent-marketplace",
+      "repository": "https://github.com/arcforgelabs/marketplace",
       "license": "MIT"
     },
     {
       "name": "replit-github",
-      "source": "replit-github",
+      "source": "./plugins/replit-github",
       "description": "Connect a Replit project to GitHub (push, PRs, pull main) and repair Replit/GitHub history drift.",
       "version": "0.1.2",
       "author": {
@@ -34,7 +33,7 @@
     },
     {
       "name": "zavy",
-      "source": "zavy",
+      "source": "./plugins/zavy",
       "description": "Zavy/Zavy360 knowledge: where data lives, reports, exports, notes, billing, recalls, inspection.",
       "version": "0.1.1",
       "author": {
@@ -45,7 +44,7 @@
     },
     {
       "name": "agent-handoff",
-      "source": "agent-handoff",
+      "source": "./plugins/agent-handoff",
       "description": "Hand coding work to another agent (Cursor, Codex, Claude, Copilot, an OpenClaw agent) through GitHub: a self-contained issue, a mention comment, a claim check, CI nudges and a merge gate.",
       "version": "0.1.0",
       "author": {
@@ -56,7 +55,7 @@
     },
     {
       "name": "building-plugins",
-      "source": "building-plugins",
+      "source": "./plugins/building-plugins",
       "description": "Create Claude Code plugins: manifests, skills, hooks, MCPs.",
       "version": "0.1.0",
       "author": {
@@ -67,7 +66,7 @@
     },
     {
       "name": "contributing-upstream",
-      "source": "contributing-upstream",
+      "source": "./plugins/contributing-upstream",
       "description": "Prepare upstream open source issues, PRs, and comments.",
       "version": "0.1.0",
       "author": {
@@ -78,7 +77,7 @@
     },
     {
       "name": "explainer",
-      "source": "explainer",
+      "source": "./plugins/explainer",
       "description": "Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan; also to pick the reply format, such as a screen recording of a finished UI change. Visual pages with a built-in theme engine: diagrams first, every part opens a definition.",
       "version": "0.1.1",
       "author": {
@@ -89,7 +88,7 @@
     },
     {
       "name": "frontend-direction",
-      "source": "frontend-direction",
+      "source": "./plugins/frontend-direction",
       "description": "Direct frontend scope, product fit, visual direction, and rendered-design critique.",
       "version": "0.1.0",
       "author": {
@@ -100,7 +99,7 @@
     },
     {
       "name": "mermaid-diagrams",
-      "source": "mermaid-diagrams",
+      "source": "./plugins/mermaid-diagrams",
       "description": "Create/update Mermaid diagrams: dataflow, architecture, syntax.",
       "version": "0.1.0",
       "author": {
@@ -111,7 +110,7 @@
     },
     {
       "name": "pr-review-loop",
-      "source": "pr-review-loop",
+      "source": "./plugins/pr-review-loop",
       "description": "GitHub PR review loop: publish, review, fix, test, re-review.",
       "version": "0.1.0",
       "author": {
@@ -122,7 +121,7 @@
     },
     {
       "name": "scaffolding-docs",
-      "source": "scaffolding-docs",
+      "source": "./plugins/scaffolding-docs",
       "description": "Scaffold project docs: templates, fork docs, repo structure.",
       "version": "0.1.0",
       "author": {
@@ -133,7 +132,7 @@
     },
     {
       "name": "shadcn",
-      "source": "shadcn",
+      "source": "./plugins/shadcn",
       "description": "Use shadcn/ui components and CLI for React projects.",
       "version": "0.1.0",
       "author": {
@@ -144,7 +143,7 @@
     },
     {
       "name": "stripe",
-      "source": "stripe",
+      "source": "./plugins/stripe",
       "description": "Stripe billing: customers, invoices, subscriptions, payments.",
       "version": "0.1.0",
       "author": {
