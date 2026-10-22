@@ -6,7 +6,7 @@ Do not open a public issue or pull request that discloses an unpatched vulnerabi
 
 ## Reporting
 
-Submit a private [GitHub Security Advisory](https://github.com/arcforgelabs/agent-marketplace/security/advisories/new) for this repository. If you cannot use it, open a public issue that only asks for a disclosure contact and contains no details.
+Submit a private [GitHub Security Advisory](https://github.com/arcforgelabs/marketplace/security/advisories/new) for this repository. If you cannot use it, open a public issue that only asks for a disclosure contact and contains no details.
 
 Useful reports include:
 

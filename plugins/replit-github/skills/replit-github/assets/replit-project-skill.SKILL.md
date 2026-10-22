@@ -42,7 +42,7 @@ Run `scripts/github-sync.sh status` if the repo has it. Otherwise check
 `[ -n "$GITHUB_TOKEN" ]` and `git ls-remote <remote> <default>`, using the token
 through a credential helper rather than putting it in the URL.
 If the repo has no `scripts/github-sync.sh`, offer to add it (via PR) from
-`arcforgelabs/agent-marketplace` → `plugins/replit-github/skills/replit-github/assets/`
+`arcforgelabs/marketplace` → `plugins/replit-github/skills/replit-github/assets/`
 (`github-sync.sh` and `git-credential-github.sh`), setting `<owner>/<repo>`.
 
 - Token works → you can push and pull yourself (Path A).

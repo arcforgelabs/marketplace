@@ -31,7 +31,7 @@ Installing the package does not grant Field access. The operator must complete `
 
 `field_connection_status` prints the origin, MCP URL, and the exact set/login commands. It does not call Field.
 
-Until a ClawHub release is confirmed, install from the packaged GitHub payload at `plugins/field/openclaw` in `arcforgelabs/agent-marketplace`.
+Until a ClawHub release is confirmed, install from the packaged GitHub payload at `plugins/field/openclaw` in `arcforgelabs/marketplace`.
 
 ## Tools after login
 

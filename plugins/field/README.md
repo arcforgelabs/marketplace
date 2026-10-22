@@ -14,9 +14,9 @@ Portable Field integration for **Codex, Claude Code and Cursor**. Bundles the Fi
 
 Register the marketplace in your host, then install Field:
 
-- **Codex:** run `codex plugin marketplace add arcforgelabs/agent-marketplace`, then `codex plugin add field@arc-forge-agents`.
-- **Claude Code:** run `/plugin marketplace add arcforgelabs/agent-marketplace`, then `/plugin install field@arc-forge-agents`.
-- **Cursor:** import `https://github.com/arcforgelabs/agent-marketplace` in the team dashboard under **Settings → Plugins → Import**, then select Field and set its team availability policy.
+- **Codex:** run `codex plugin marketplace add arcforgelabs/marketplace`, then `codex plugin add field@arc-forge-agents`.
+- **Claude Code:** run `/plugin marketplace add arcforgelabs/marketplace`, then `/plugin install field@arc-forge-agents`.
+- **Cursor:** import `https://github.com/arcforgelabs/marketplace` in the team dashboard under **Settings → Plugins → Import**, then select Field and set its team availability policy.
 
 Start a new agent conversation and ask: **Set up Field for me and verify the connection.** The agent runs the bundled launcher installer.
 
