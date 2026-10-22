@@ -75,7 +75,7 @@ Post the mention comment from [references/adapters.md](references/adapters.md)
 on the issue (new work) or the pull request (finish or fix). Keep the comment
 short; the issue holds the brief. Ask for:
 
-- a branch with the agent's prefix (`cursor/`, `codex/`, `claude/`, `arc/`),
+- a branch with the agent's prefix (`cursor/`, `codex/`, `claude/`, `copilot/`),
 - a draft pull request opened early, with the repo's template and
   `Closes #<n>`, so the claim shows at once,
 - "mark ready for review when CI is green".

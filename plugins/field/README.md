@@ -6,19 +6,9 @@ The OpenClaw product integration is the native plugin at `plugins/field/openclaw
 
 See `plugins/field/openclaw/README.md`.
 
-## Portable (Codex, Claude Code, Cursor)
+## Portable lane (not listed)
 
-Portable Field integration for **Codex, Claude Code and Cursor**. Bundles the Field CLI and operating skill for jobs, quotes, invoices, email templates and catalog workflows. This lane is not the OpenClaw product integration.
-
-## Install
-
-Register the marketplace in your host, then install Field:
-
-- **Codex:** run `codex plugin marketplace add arcforgelabs/marketplace`, then `codex plugin add field@arc-forge-agents`.
-- **Claude Code:** run `/plugin marketplace add arcforgelabs/marketplace`, then `/plugin install field@arc-forge-agents`.
-- **Cursor:** import `https://github.com/arcforgelabs/marketplace` in the team dashboard under **Settings → Plugins → Import**, then select Field and set its team availability policy.
-
-Start a new agent conversation and ask: **Set up Field for me and verify the connection.** The agent runs the bundled launcher installer.
+This folder also holds a Field CLI and operating skill for coding agents. The marketplace catalogs no longer list it, so Codex, Claude Code and Cursor do not offer it. To use it, run `node plugins/field/scripts/install-field-cli.js` from a checkout of this repo.
 
 ## Authenticate
 

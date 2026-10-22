@@ -9,9 +9,9 @@ Upstream contribution is a maintainer-load negotiation. Before writing an issue,
 PR, or public comment, learn the repository's contribution contract and current
 maintainer posture.
 
-For `openclaw/openclaw` or `openclaw/openclaw-enterprise`, also use
-`contributing-openclaw`: it carries their routing, proof rules, ClawSweeper's
-rubric and our lessons log.
+A repository can carry its own rules for this: in `AGENTS.md`, in its
+contributing docs, or in a project skill such as `contributing-<project>`.
+Look for them first. Where they differ from this skill, they win.
 
 ## When to Use
 

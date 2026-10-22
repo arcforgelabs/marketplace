@@ -12,21 +12,6 @@
   },
   "plugins": [
     {
-      "name": "field",
-      "source": "field",
-      "description": "Manage Field jobs, quotes, invoices, email templates, and catalog workflows"
-    },
-    {
-      "name": "replit-github",
-      "source": "replit-github",
-      "description": "Connect a Replit project to GitHub (push, PRs, pull main) and repair Replit/GitHub history drift."
-    },
-    {
-      "name": "zavy",
-      "source": "zavy",
-      "description": "Zavy/Zavy360 knowledge: where data lives, reports, exports, notes, billing, recalls, inspection."
-    },
-    {
       "name": "agent-handoff",
       "source": "agent-handoff",
       "description": "Hand coding work to another agent (Cursor, Codex, Claude, Copilot, an OpenClaw agent) through GitHub: a self-contained issue, a mention comment, a claim check, CI nudges and a merge gate."
@@ -47,34 +32,9 @@
       "description": "Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan; also to pick the reply format, such as a screen recording of a finished UI change. Visual pages with a built-in theme engine: diagrams first, every part opens a definition."
     },
     {
-      "name": "frontend-direction",
-      "source": "frontend-direction",
-      "description": "Direct frontend scope, product fit, visual direction, and rendered-design critique."
-    },
-    {
       "name": "mermaid-diagrams",
       "source": "mermaid-diagrams",
       "description": "Create/update Mermaid diagrams: dataflow, architecture, syntax."
-    },
-    {
-      "name": "pr-review-loop",
-      "source": "pr-review-loop",
-      "description": "GitHub PR review loop: publish, review, fix, test, re-review."
-    },
-    {
-      "name": "scaffolding-docs",
-      "source": "scaffolding-docs",
-      "description": "Scaffold project docs: templates, fork docs, repo structure."
-    },
-    {
-      "name": "shadcn",
-      "source": "shadcn",
-      "description": "Use shadcn/ui components and CLI for React projects."
-    },
-    {
-      "name": "stripe",
-      "source": "stripe",
-      "description": "Stripe billing: customers, invoices, subscriptions, payments."
     }
   ]
 }

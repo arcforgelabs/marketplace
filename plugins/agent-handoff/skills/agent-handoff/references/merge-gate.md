@@ -12,7 +12,7 @@ All of these are true:
 - It touches no risky path: auth, database schema or migrations, CI and
   release workflows, dependencies, deploy, integrations that write to an
   outside service.
-- It has no risk label (for example ClawSweeper `merge-risk: …`,
+- It has no risk label (for example a review bot's `merge-risk: …`,
   `impact:security`, `needs-security-review`).
 - It is not a draft, all required checks are green on the latest commit, and
   it has no merge conflict.
