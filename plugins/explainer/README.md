@@ -1,9 +1,9 @@
 # explainer
 
-Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan. Visual pages with a built-in theme engine: diagrams first, every part opens a definition.
+Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan; also to pick the reply format, such as a screen recording of a finished UI change. Visual pages with a built-in theme engine: diagrams first, every part opens a definition.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
-(`components/skills/explainer`, staged from `89dd44eb4433`). Fix and review it
+(`components/skills/explainer`, staged from `1e0d2ab1c7d9`). Fix and review it
 there; this package is a generated release payload.
 
 ## Install
