@@ -3,7 +3,7 @@
 Create Claude Code plugins: manifests, skills, hooks, MCPs.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
-(`components/skills/building-plugins`, staged from `89dd44eb4433`). Fix and review it
+(`components/skills/building-plugins`, staged from `0671fd84aabf`). Fix and review it
 there; this package is a generated release payload.
 
 ## Install

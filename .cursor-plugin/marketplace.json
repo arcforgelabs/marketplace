@@ -29,7 +29,7 @@
     {
       "name": "explainer",
       "source": "explainer",
-      "description": "Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan; also to pick the reply format, such as a screen recording of a finished UI change. Visual pages with a built-in theme engine: diagrams first, every part opens a definition."
+      "description": "Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme kit and a format guide for replies."
     },
     {
       "name": "mermaid-diagrams",
