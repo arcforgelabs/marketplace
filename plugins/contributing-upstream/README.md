@@ -3,7 +3,7 @@
 Prepare upstream open source issues, PRs, and comments.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
-(`components/skills/contributing-upstream`, staged from `89dd44eb4433`). Fix and review it
+(`components/skills/contributing-upstream`, staged from `66058327418c`). Fix and review it
 there; this package is a generated release payload.
 
 ## Install

@@ -3,7 +3,7 @@
 Hand coding work to another agent (Cursor, Codex, Claude, Copilot, an OpenClaw agent) through GitHub: a self-contained issue, a mention comment, a claim check, CI nudges and a merge gate.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
-(`components/skills/agent-handoff`, staged from `89dd44eb4433`). Fix and review it
+(`components/skills/agent-handoff`, staged from `66058327418c`). Fix and review it
 there; this package is a generated release payload.
 
 ## Install

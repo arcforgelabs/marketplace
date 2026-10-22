@@ -11,7 +11,7 @@ const pluginRoot = join(repoRoot, "plugins", "field");
 const installer = join(pluginRoot, "scripts", "install-field-cli.js");
 const TEST_TOKEN = `field_${"a".repeat(43)}`;
 
-test("marketplace manifests expose Arc Forge / Field across all supported hosts", async () => {
+test("marketplace catalogs are named arc-forge-agents and leave Field to OpenClaw", async () => {
   const manifests = [
     ["Codex", ".agents/plugins/marketplace.json"],
     ["Claude Code", ".claude-plugin/marketplace.json"],
@@ -20,13 +20,7 @@ test("marketplace manifests expose Arc Forge / Field across all supported hosts"
   for (const [host, relativePath] of manifests) {
     const manifest = JSON.parse(await readFile(join(repoRoot, relativePath), "utf8"));
     assert.equal(manifest.name, "arc-forge-agents", `${host} marketplace name`);
-    assert.ok(manifest.plugins.some((p) => p.name === "field"), `${host} Field entry`);
-  }
-
-  for (const hostDir of [".codex-plugin", ".claude-plugin", ".cursor-plugin"]) {
-    const manifest = JSON.parse(await readFile(join(pluginRoot, hostDir, "plugin.json"), "utf8"));
-    assert.equal(manifest.name, "field");
-    assert.equal(manifest.version, "0.1.2");
+    assert.ok(!manifest.plugins.some((p) => p.name === "field"), `${host} lists no Field entry`);
   }
 });
 

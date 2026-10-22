@@ -2,7 +2,8 @@
 
 The loop in `SKILL.md` is the same for every agent. Only the trigger, the
 answer you wait for and the branch prefix change. Check a row on a test issue
-before you rely on it: products change their triggers.
+before you rely on it: products change their triggers. The repo's `AGENTS.md`
+names the agents it uses, their trigger accounts and any hook; read it first.
 
 | Agent | Trigger | It started when | Branch prefix | Notes |
 | --- | --- | --- | --- | --- |
@@ -10,7 +11,7 @@ before you rely on it: products change their triggers.
 | OpenAI Codex (cloud) | A comment that mentions `@codex` on a pull request or issue | Codex replies or reacts; a task appears in the Codex web app | `codex/` | Needs the Codex GitHub connector on the repo and an environment for it. Verify first. |
 | Claude (GitHub App / Action) | A comment that mentions `@claude` | The workflow run starts; Claude posts a progress comment | `claude/` | Needs the Claude GitHub App or `anthropics/claude-code-action` in the repo. Verify first. |
 | GitHub Copilot coding agent | Assign the issue to Copilot | Copilot opens a draft pull request | `copilot/` | Needs Copilot coding agent turned on for the repo. Verify first. |
-| OpenClaw agent (for example "Arc") | An HTTP hook to the agent's Gateway (`POST /hooks/agent`), or a message on its channel, with the issue link | The agent answers on its channel or comments on the issue | `arc/` (or its own) | No GitHub mention: the coordinator or a GitHub workflow calls the hook. Keep the hook token in a secret store. |
+| OpenClaw agent | An HTTP hook to the agent's Gateway (`POST /hooks/agent`), or a message on its channel, with the issue link | The agent answers on its channel or comments on the issue | The agent's own, for example `<agent>/` | No GitHub mention: the coordinator or a GitHub workflow calls the hook. Keep the hook token in a secret store. |
 
 ## Not started?
 
