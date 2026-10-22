@@ -1,6 +1,6 @@
 ---
 name: explainer
-description: "Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan. Visual pages with a built-in theme engine: diagrams first, every part opens a definition."
+description: "Load FIRST, before any generic artifact or design guidance, for any ask for a visual, artifact, page, report, dashboard, diagram, chart, widget or before/after, and to explain, compare, map or plan; also to pick the reply format, such as a screen recording of a finished UI change. Visual pages with a built-in theme engine: diagrams first, every part opens a definition."
 ---
 
 # Explainer
@@ -37,7 +37,15 @@ All paths are relative to this skill folder.
 | `scripts/bundle` | Inlines the kit into one self-contained HTML file. |
 | `scripts/check` | Headless check, in every theme, light and dark, 390px and 1280px: page errors, one theme button, every part and every view opens, WCAG AA contrast, no literal colours, no sideways scroll. The theme menu and the default order once. |
 | `scripts/sync-themes` | Writes `kit/themes.js` from `kit/tokens.css`, `arcforgelabs/themes` and Flow. |
+| `references/formats/README.md` | The format router: which reply format fits a reader's need, and its guide. |
+| `references/formats/ui-walkthrough.md` | UI walkthrough video: when to record, tiers, shot list, clip check, delivery. |
+| `scripts/record-walkthrough` | Records a shot list as an mp4: tier A (Xvfb and ffmpeg, desktop take) or tier B (Playwright `recordVideo`). Writes a step log and one frame per step. |
+| `examples/walkthrough-shots.json` | A shot list for `examples/explainer-kit.html`. |
 | `scripts/export-public` | Writes the public copy (no scripts, no private names or links) to a folder, for example `arcforgelabs/themes` `explainer/`. |
+
+## Pick the format
+
+An explainer page is one reply format. Read `references/formats/README.md` and use the first row that fits the reader's need. A finished UI change gets a UI walkthrough video (`references/formats/ui-walkthrough.md`): record the working path, check each step frame, then cite it. Audio replies, generated video and generated images are planned rows with no guide yet.
 
 ## Make a page
 

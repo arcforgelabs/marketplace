@@ -1,18 +1,19 @@
 {
   "sourceRepo": "arcforgelabs/tools",
-  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
+  "sourceCommit": "1e0d2ab1c7d9c98a2da31d12362c3d99c307a208",
   "sourcePath": "components/skills/explainer",
   "kind": "skill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "files": {
-    ".claude-plugin/plugin.json": "e68efaef8fb2578b84b55ba09597bcc40512913a99f2f015a9bade99666356c1",
-    "README.md": "877e014998e925c39a2e16b435ad723038f5492cfa966efa2d6af7a0033e1ec5",
-    "package.json": "21e7ca615fa1fa70df580f4473a7d6ed8a548b24b918901a3648f4e4a22f4adb",
-    "plugin.json": "5f5e734bb0d27d31fe856ebec58409dca248763e0d48fd693d10a15e2d8b72d9",
-    "skills/explainer/README.md": "dc9aa9660b4a9fb7de2b6e7ede59b51414796043b61f94ce6ee850a81c98ab54",
-    "skills/explainer/SKILL.md": "0b5f37ab7038938862433ab805e2cf03eda28ec92eeedad7a9ac11303d564e55",
+    ".claude-plugin/plugin.json": "69850bb25900e70e4c5f5703ea68b029a3e613e4300c7520a71e7963875f6504",
+    "README.md": "0b90d395f92a27728e545187094999ad432c14dacbfba62aebdf0ac8efe13e04",
+    "package.json": "dd53461ab3d2ec272d1494e6460f5cf092bf90b2e3a3e9f5ceb4dbc31104978e",
+    "plugin.json": "f0698e96a01cb14174440bacf51c8501fb7b7ec0b913952f9e47d8047b91f1c6",
+    "skills/explainer/README.md": "d58e54c9f3255be7663f8559a8aec6cc57eb2c3def7519d4313e6e986ac29d41",
+    "skills/explainer/SKILL.md": "a5e5819bb810602a000bbf47345f05108f7e9a2cd415746671a9ab8a63edaae9",
     "skills/explainer/examples/explainer-kit.html": "8a7602c2854e82af27af3b74ebfc2a6cbbe13e6ea935643f45b8fc427ab84532",
     "skills/explainer/examples/starter.html": "34bf4340f482bd23efd9bd60837e3b570af8a83871f7158f006760cdb0c41f67",
+    "skills/explainer/examples/walkthrough-shots.json": "d915df90332180e6584ecd885568341ecdfea489df08a35fc3d8906317b5b259",
     "skills/explainer/index.html": "1044bb5b8aada48415fb572d4d81d360e851ea1de3c87b69f3a093474be336ab",
     "skills/explainer/kit/charts.js": "a642992ba489878716f5cbfc6cfeed5e1ab4d8f947ff07f800bd09fe7c542726",
     "skills/explainer/kit/explainer.css": "254b52acdca248bcf7448b59ded4b900890794e0b9194abd1d7f28148262f886",
@@ -21,6 +22,8 @@
     "skills/explainer/kit/tokens.css": "eff88477769fa84363fc83a5814c3787e3fa510ebffa2eb241b253c3d988fc5a",
     "skills/explainer/references/chart-lab.html": "4a031e6a8215783b8a03ed7b50a5a9e9295e62951375e7fa1a4a686c3563ce20",
     "skills/explainer/references/charts.md": "ec9da533439c3d8d275db02bcfee7aa22f3b7b119b28b39838f9d8286b377473",
+    "skills/explainer/references/formats/README.md": "0d71b74e99e24487e287f1072797a8645b6dbc36dac5e365d4bcabe240fc52d5",
+    "skills/explainer/references/formats/ui-walkthrough.md": "e7ff7175d38bc97529a73b01ae427d83a7678d41c6d18405b97c6428df106604",
     "skills/explainer/references/pattern.md": "406e6c946587baae4028edafbc95ad1046fc2a7a1a62455d25919bc44f56aead"
   }
 }
