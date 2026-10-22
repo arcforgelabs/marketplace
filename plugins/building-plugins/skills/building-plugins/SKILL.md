@@ -135,7 +135,11 @@ Use the provided template as starting point:
 ```bash
 cp -r ~/.claude/skills/building-plugins/assets/plugin-template my-plugin
 cd my-plugin
+mv claude-plugin .claude-plugin
 ```
+
+The template keeps its manifest folder as `claude-plugin/` (no dot), so that a
+marketplace does not read the template as a second plugin inside this skill.
 
 Or create from scratch:
 
@@ -389,7 +393,7 @@ This skill includes reference documentation and example templates:
 - `marketplace_guide.md` - Distribution and marketplace creation strategies
 
 ### assets/
-- `plugin-template/` - Basic plugin directory structure to copy
+- `plugin-template/` - Basic plugin directory structure to copy (rename its `claude-plugin/` to `.claude-plugin/`)
 - `manifest-examples/` - Example plugin.json files for different plugin types
 - `marketplace-template.json` - Example marketplace.json configuration
 
