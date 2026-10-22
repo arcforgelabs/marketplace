@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arcforgelabs.com/schemas/pr-review-loop/review-finding.schema.json",
+  "title": "PR Review Loop Finding",
+  "description": "Normalized review finding in the PR Review Loop ledger.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source",
+    "severity",
+    "title",
+    "body",
+    "status",
+    "blocking"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PRL-[0-9]{4}$",
+      "description": "Stable loop finding identifier."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": [
+            "codex-cli",
+            "codex-github",
+            "github-human",
+            "human",
+            "other"
+          ]
+        },
+        "provider_id": {
+          "type": "string",
+          "description": "Provider-native reference (comment ID, review thread, log line hash)."
+        },
+        "review_pass": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Review cycle when this finding was first ingested."
+        },
+        "raw_ref": {
+          "type": "string",
+          "description": "Pointer to raw provider output (log path, URL, comment link)."
+        }
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3", "info"],
+      "description": "Finding priority. P0 is most severe."
+    },
+    "file": {
+      "type": "string",
+      "description": "Absolute or repo-relative file path."
+    },
+    "line": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Primary line number for the finding."
+    },
+    "line_end": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Optional end line for multi-line ranges."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "body": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Explanation of why this is a problem."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "accepted", "fixed", "rejected"],
+      "description": "Triage and resolution status."
+    },
+    "blocking": {
+      "type": "boolean",
+      "description": "Whether this finding blocks loop closeout when accepted or open."
+    },
+    "recommendation": {
+      "type": "string",
+      "description": "Optional suggested fix from the reviewer."
+    },
+    "triage_reason": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Required when status is rejected; explains dismissal."
+    },
+    "fixed_in_commit": {
+      "type": "string",
+      "minLength": 7,
+      "maxLength": 40,
+      "description": "Commit SHA that addressed this finding."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "rejected" } },
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["triage_reason"]
+      }
+    }
+  ]
+}

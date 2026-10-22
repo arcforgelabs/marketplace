@@ -32,6 +32,8 @@ publishes from its own files, so keep the two identical.
 - `<default>` must only move by fast-forward. Never rebase, amend, or force-push it.
 - Replit auto-commits ("Published your App", checkpoints) land on the current
   branch. Do feature work on a branch so `<default>` stays fast-forwardable.
+  `scripts/github-sync.sh pull` drops local-only commits that change no files
+  before it fast-forwards, so publish commits never block a pull.
 - Never print, echo, log, or commit the token value.
 
 ## Decide which path
@@ -91,8 +93,7 @@ The human does every step; you never see, print, or store the token value.
 7. In Replit: **Tools → Secrets → New Secret**, key `GITHUB_TOKEN`, paste the
    value. Tell the user not to paste it into the Agent chat.
 8. If the org requires approval the token shows as pending; an org owner
-   approves it at `https://github.com/organizations/<owner>/settings/personal-access-token-requests`
-   (Samuel is the arcforgelabs owner)
+   approves it at `https://github.com/organizations/<owner>/settings/personal-access-token-requests`.
 9. Verify: `scripts/github-sync.sh status` → `auth: GITHUB_TOKEN works`.
 
 If the token is rejected, check in this order: expired (make a new one and

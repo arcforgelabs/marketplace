@@ -1,0 +1,17 @@
+{
+  "sourceRepo": "arcforgelabs/tools",
+  "sourceCommit": "89dd44eb443368a285124084b232f9338a335d42",
+  "sourcePath": "components/skills/shadcn",
+  "kind": "skill",
+  "version": "0.1.0",
+  "files": {
+    ".claude-plugin/plugin.json": "d078d19944a993e85283eac9660e3dbb614e12ca53f64fe9fd2c2e52c49e6726",
+    "README.md": "ad5dc36778828eb8e3f89eb9033c1a106b86c720cc205750e79421f10db50a07",
+    "package.json": "b2ff7370c0f8aace791a8e4579a9cca07c12ceabe8d1a6a633707838bf5bcec7",
+    "plugin.json": "6a32c1379da37962a10ff9071a6869d0ace283ea89ed10558f06be15c80497d2",
+    "skills/shadcn/README.md": "5fe8a7ea031a57f1d3b584d9d4f9946f5c74e55e79f7a9cc6b1029b224a95373",
+    "skills/shadcn/SKILL.md": "c9c180285e950596b7ba5146095a9f757825e025b3c47e263284f2f7436005f6",
+    "skills/shadcn/components.md": "98266645fbcf33becd213ff236684670fa994a2b48512f06a2311fcae26c306d",
+    "skills/shadcn/references/components.md": "98266645fbcf33becd213ff236684670fa994a2b48512f06a2311fcae26c306d"
+  }
+}

@@ -1,13 +1,13 @@
 {
   "name": "replit-github",
-  "version": "0.1.1",
-  "description": "Wire a Replit project to a GitHub repo so the Replit Agent can push, open PRs, and pull main; diagnose or repair Replit/GitHub history drift; set up new Replit projects or accounts against arcforgelabs repos.",
+  "version": "0.1.2",
+  "description": "Connect a Replit project to GitHub (push, PRs, pull main) and repair Replit/GitHub history drift.",
   "author": {
     "name": "Arc Forge Labs",
     "email": "support@arcforge.au"
   },
-  "homepage": "https://github.com/arcforgelabs/agent-marketplace/tree/main/plugins/replit-github",
-  "repository": "https://github.com/arcforgelabs/agent-marketplace",
+  "homepage": "https://github.com/arcforgelabs/marketplace/tree/main/plugins/replit-github",
+  "repository": "https://github.com/arcforgelabs/marketplace",
   "license": "MIT",
   "keywords": [
     "skill",
