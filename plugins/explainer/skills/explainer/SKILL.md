@@ -57,7 +57,17 @@ An explainer page is one reply format. Read `references/formats/README.md` and u
 6. Draw each chart with `ExCharts.<kind>(element, data)`. Load `kit/themes.js` and `kit/charts.js`, and call the renderers, before `kit/explainer.js`. When a subject needs two families, use a second figure or `ExCharts.views`. For one set of rows, `ExCharts.data(element, {label, unit, rows})` switches among a bar chart, a table, and a share diagram.
 7. End a section with `<details class="ex-facts" data-def="…">` when a reader will want to scan the facts.
 8. Run `scripts/check <page.html>`. Fix every failure. Set `CHROMIUM_PATH` to use a browser that is already installed.
-9. Look at the screenshots (`--shots <dir>`). Read the page as a reader would: no open text longer than one sentence, every fact has a part, red on one or two things only. Each main concept has two views from different families. Each main pop-up has about 4 to 8 facts. Full words only.
+9. Look at the screenshots (`--shots <dir>`). Read the page as a reader would: no open text longer than one sentence, every fact has a part, red on one or two things only. Each main concept has two views from different families. Each main pop-up has about 4 to 8 facts. Full words only. The problem is a drawn figure. Unknowns are question marks or dashed lines. A story strip is stamped HYPOTHETICAL. A proposed after view is stamped PROPOSAL, NOT APPROVED.
+
+## Picture rules
+
+- Show the problem as a picture. Drawn figures carry it. The open page has almost no paragraphs.
+- Where the subject is a threat or a failure, show it in motion. Animate the paths and the dots. Set them against real live numbers.
+- Draw risk as a blast radius. Rings spread outward from the point of impact. A solid ring is confirmed. A dashed ring is not checked.
+- A story strip is allowed when it is clearly stamped HYPOTHETICAL. Each step shows which fix would have stopped it.
+- Add a good-example contrast figure beside a bad case.
+- When the page proposes a change, redraw the main picture as an after view. Stamp that figure PROPOSAL, NOT APPROVED. Keep the alternative view from the other family as well.
+- Keep the visuals honest. Show an unknown as a question mark or a dashed line. Leave a guess off the figure.
 
 ## Colour, fonts and radii: tokens only
 

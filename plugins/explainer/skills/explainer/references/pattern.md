@@ -1,6 +1,6 @@
 # Explainer pattern
 
-> Public copy of the Arc Forge explainer pattern, with the 25 October 2026 view, depth, and full-word rules. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
+> Public copy of the Arc Forge explainer pattern, with the 25 October 2026 view, depth, full-word, and picture rules. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
 
 An explainer is a page or inline widget that explains a system, a plan or a comparison with visuals first. Use one whenever someone asks to explain something, for more detail, how something works, or to compare things. Marketing pages follow the rest of this book; explainers follow this section.
 
@@ -26,6 +26,16 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - Never use a sequence diagram (lifelines with messages): rated D tier. Show a request path as a connection diagram when structure is the right primary view, and add a second view from another family.
 - FlowLanes (chip lanes) are low tier: they only group things. Use them for short, simple lists.
 - Chart Lab rates each kind on the same subject: `references/chart-lab.html`. Its ratings decide this list. The tiers are in `charts.md`.
+
+## Picture rules
+
+- Show the problem as a picture. Drawn figures carry it. The open page has almost no paragraphs.
+- Where the subject is a threat or a failure, show it in motion. Animate the paths and the dots. Set them against real live numbers.
+- Draw risk as a blast radius. Rings spread outward from the point of impact. A solid ring is confirmed. A dashed ring is not checked.
+- A story strip is allowed when it is clearly stamped HYPOTHETICAL. Each step shows which fix would have stopped it.
+- Add a good-example contrast figure beside a bad case.
+- When the page proposes a change, redraw the main picture as an after view. Stamp that figure PROPOSAL, NOT APPROVED. Keep the alternative view from the other family as well.
+- Keep the visuals honest. Show an unknown as a question mark or a dashed line. Leave a guess off the figure.
 
 ## Words
 
@@ -67,7 +77,7 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 
 ## Colour in diagrams
 
-- Plain part: `card` with `border-strong`. Main family: `accent-subtle` with `accent`. Second family: `accent-2-subtle` with `accent-2` (steel). Optional or not live: dashed.
+- Plain part: `card` with `border-strong`. Main family: `accent-subtle` with `accent`. Second family: `accent-2-subtle` with `accent-2` (steel). Optional, not live, unknown, or not checked: dashed. A confirmed blast ring is solid.
 - Red marks only the one thing to see first. Status colours only with a word.
 
 ## Themes
@@ -98,6 +108,13 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - Every fact sits in an item; the FactsList leads to each one.
 - No open text longer than one sentence.
 - Page text, titles, labels, and pop-ups use full words. Where a short form helps, write it once in brackets after the full term, then keep using the full term.
+- The problem is a drawn figure. The open page has almost no paragraphs.
+- Where the subject is a threat or a failure, paths or dots move against real live numbers.
+- Where the subject is risk, the figure is a blast radius. Solid rings are confirmed. Dashed rings are not checked.
+- A story strip is stamped HYPOTHETICAL. Each step shows which fix would have stopped it.
+- A bad case has a good-example contrast figure.
+- A proposed change has an after view of the main picture, stamped PROPOSAL, NOT APPROVED.
+- An unknown is a question mark or a dashed line. A guess is not drawn as a fact.
 - Rows keep 44px; the rail picks the right section.
 - Light and dark both work in every theme; 320px has no sideways scroll.
 - One theme button. Contrast meets Web Content Accessibility Guidelines, level AA, in every theme (`scripts/check`).
