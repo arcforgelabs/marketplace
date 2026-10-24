@@ -1,6 +1,6 @@
 # Explainer pattern
 
-> Public copy of the Arc Forge explainer pattern, 2026-10-20. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
+> Public copy of the Arc Forge explainer pattern, with the 25 October 2026 view, depth, and full-word rules. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
 
 An explainer is a page or inline widget that explains a system, a plan or a comparison with visuals first. Use one whenever someone asks to explain something, for more detail, how something works, or to compare things. Marketing pages follow the rest of this book; explainers follow this section.
 
@@ -13,37 +13,44 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - Pages link like a wiki: an item that touches another page's subject holds one fact with that page's name and link, and the other page links back.
 - Each page stands alone: it defines its own terms, lists its sources and holds no project chatter.
 
-## Choose the diagram (critical)
+## Choose the views (critical)
 
-- Default to a **ConnectionDiagram**: parts as boxes, joined by labelled arrows. Most explainers show how pieces fit together, and only connections show that.
-- Each arrow names what moves along it. A box with no arrow is a sign of a missing connection.
-- Use another kind only when the subject needs it: a state machine for a lifecycle, capacity bars for amounts against a limit, a timeline for real durations, a table to compare values.
+- Pick the best primary view for the subject. Then add at least one alternative view of the same subject from a different family.
+- The families are structure, time, amount, hierarchy, and comparison.
+- A connection diagram is a structure view: parts as boxes, joined by labelled arrows. Use it when connections are the best way to show the subject.
+- The alternative can be a timeline, a state machine, a container diagram, a Sankey, a heatmap, a tree, or a table. The view switch or a second figure can carry it.
+- When the primary view is a connection diagram, each arrow names what moves along it. A box with no arrow is a sign of a missing connection.
 - **Build up from the problem** for a design or a technique: figure 1 shows the problem at its simplest. Each next figure changes one thing, names the change, and shows what it fixes or what still fails. Later figures can combine fixes. Simple figures, many steps. Reference: https://samwho.dev/load-balancing/.
 - **Open with a promise, then keep it**: the opening visual shows real data about the exact subject and the question the page answers, so readers know fast if the page is for them. No bait: it should not catch everyone, and the page must deliver what it promises. Reference: https://ngrok.com/blog/prompt-caching.
 - **Pretty, with substance**: care in the look is care for the reader. Decoration with no content is not allowed.
-- Never use a sequence diagram (lifelines with messages): rated D tier. Show a request path as a ConnectionDiagram.
+- Never use a sequence diagram (lifelines with messages): rated D tier. Show a request path as a connection diagram when structure is the right primary view, and add a second view from another family.
 - FlowLanes (chip lanes) are low tier: they only group things. Use them for short, simple lists.
 - Chart Lab rates each kind on the same subject: `references/chart-lab.html`. Its ratings decide this list. The tiers are in `charts.md`.
 
 ## Words
 
 - Diagrams and visual parts first. Add words only where they help.
-- One fact per sentence. ASD-STE100 simple English. Australian spelling.
+- One fact per sentence. Use Simplified Technical English (ASD-STE100): short sentences and common words. Australian spelling.
+- Simple English means short sentences and common words. Each main item still needs about 4 to 8 substantive facts.
+- No acronyms. Write the full words in page text, titles, labels, and pop-ups. Where knowing the short form helps, write it once in brackets after the full term, for example "Web Content Accessibility Guidelines (WCAG)". Then keep using the full term.
 - Text longer than one sentence goes behind progressive disclosure: a DetailPopover or a FactsList. Never show it open on the page.
 - No preamble and no "This diagram shows…". No slogan or marketing titles.
 
 ## Definitions first (critical)
 
-- Every item that opens shows a **definition first**, under its title: pop-ups, FactsLists, More buttons, diagram boxes, table rows.
-- A definition says what the item IS, in 1–2 short sentences with one fact each.
+- Every item that opens shows a **definition first**, under its title: pop-ups, Facts lists, More buttons, diagram boxes, table rows.
+- A definition says what the item is. One or two sentences is enough for the meaning. The rest of the explanation follows as facts.
 - Style it apart: `text-strong`, 14px, with a 1px `border` rule under it. Numbered facts follow. Facts never repeat the definition.
+- Every pop-up needs depth after the definition. Aim for about 4 to 8 substantive facts on each main item.
+- Cover why the item exists, how it works, how it connects to its neighbours, real numbers, limits and failure modes, and a source or a link where one exists.
+- Short sentences are fine. Few facts are not.
 
 ## Every item is clickable, every fact has an item
 
 - Every named thing in a diagram, flow, table or chart opens a DetailPopover next to it.
 - Every fact belongs to an item. If a fact has no item, the diagram is missing that item: add it.
 - A FactsList is built from the items. A click on a fact scrolls to its item, pulses it red and opens its pop-up.
-- A pop-up never changes the page below. An outside click, Esc or the item again closes it.
+- A pop-up never changes the page below. An outside click, Escape or the item again closes it.
 
 ## Section heads
 
@@ -54,7 +61,7 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 
 - `.ex-shell`: 1040px max, centred, a 16px gutter (safe-area aware).
 - `.ex-section`: 40px block padding, 20px gap, a 1px `border` rule at the end.
-- ConnectionDiagram: an inline SVG; parts 56–70px high, columns with mono caps headers, at least 60px between columns for arrow labels. No label sits on a line.
+- Connection diagram: an inline vector graphic; parts 56–70px high, columns with mono caps headers, at least 60px between columns for arrow labels. No label sits on a line.
 - FlowLanes: lanes split by 1px `border` rules, mono caps captions, 44px boxes with 8px gaps. Give a busy flow room; never cram it.
 - Diagrams and tables sit on `card` with a 1px `border` at `radius-lg`, in their own horizontal scroll at phone width.
 
@@ -69,7 +76,7 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - A page names its theme in `<meta name="ex-theme">`. Arc Forge is the fallback, not a fixed look: "red" above means `accent` in the active theme.
 - One theme button per page, fixed in the bottom-right corner. Never a theme switcher per component.
 - The viewer's pick, then the viewer's saved default, then the page theme, then Arc Forge.
-- A data block may have one view switch: chart, table or diagram of the same rows.
+- A data block may have one view switch: chart, table or diagram of the same rows. Use the switch, or a second figure, when the second view is another family.
 
 ## Tables
 
@@ -86,11 +93,12 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 
 ## Before you publish
 
-- The main diagram shows connections, unless the subject is a list or a set of values.
-- Every item opens a pop-up with a definition first.
+- Each main concept has a primary view and at least one alternative view of the same subject from a different family.
+- Every item opens a pop-up with a definition first, then about 4 to 8 substantive facts on each main item.
 - Every fact sits in an item; the FactsList leads to each one.
 - No open text longer than one sentence.
+- Page text, titles, labels, and pop-ups use full words. Where a short form helps, write it once in brackets after the full term, then keep using the full term.
 - Rows keep 44px; the rail picks the right section.
 - Light and dark both work in every theme; 320px has no sideways scroll.
-- One theme button; WCAG AA contrast in every theme (`scripts/check`).
-- A headless browser test shows no page errors and opens every item.
+- One theme button. Contrast meets Web Content Accessibility Guidelines, level AA, in every theme (`scripts/check`).
+- A headless browser test shows no page errors and opens every item and every view.

@@ -22,7 +22,7 @@ Source: Chart Lab, `references/chart-lab.html` (ratings of 2026-10-19). The page
 
 | Kind | Family | charts.js | Note |
 | --- | --- | --- | --- |
-| Connection diagram | Boxes and arrows | `connection` | The default diagram. Parts as boxes, joined by labelled arrows. |
+| Connection diagram | Boxes and arrows | `connection` | A structure view. Parts as boxes, joined by labelled arrows. Pair it with a view from another family. |
 | State machine | Boxes and arrows | — | States of one thing and the events that move it. For lifecycles. |
 | Anatomy callout | Boxes and arrows | — | Labels on the parts of one thing. Tie code lines to their effect. |
 | Expand and collapse | Boxes and arrows | — | Groups open on tap. Readers keep open what they need. |
