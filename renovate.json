@@ -1,0 +1,14 @@
+{
+  "dependencyDashboard": false,
+  "enabledManagers": ["regex"],
+  "automerge": false,
+  "regexManagers": [
+    {
+      "fileMatch": ["^plugins/explainer/package\\.json$"],
+      "matchStrings": ["\"@arcforgelabs/themes\"\\s*:\\s*\"github:arcforgelabs/themes#(?<currentValue>v\\d{4}\\.\\d{1,2}\\.\\d+)\""],
+      "depNameTemplate": "arcforgelabs/themes",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "regex:^v(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d+)$"
+    }
+  ]
+}

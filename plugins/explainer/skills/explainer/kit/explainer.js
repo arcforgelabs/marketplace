@@ -1,7 +1,8 @@
 /* Explainer runtime (explainers.md). Data: window.EX = {"<key>": {t, l, d, x: []}}.
    Items: any element with data-ex="<key>". Facts lists: <details class="ex-facts" data-def="…"> in a section.
    Rail: <nav class="ex-rail"></nav>, filled from .ex-section[id] heads.
-   Theme: one floating button per page (themeEngine, below). Themes come from kit/themes.js (window.ExThemes). */
+   Theme: one floating button per page (themeEngine, below). Themes come from kit/themes.js (window.ExThemes),
+   which is filled from the Arc Forge themes release. This file does not store theme values. */
 (function () {
   if (window.ExRuntime) return; window.ExRuntime = true;
   var EX = window.EX = window.EX || {};
@@ -209,9 +210,15 @@
       menu.querySelector('[data-act="default"]').disabled = !!isDef;
       menu.querySelector('[data-act="default"]').textContent = isDef ? 'Default' : 'Set as default';
       menu.querySelector('[data-act="clear"]').hidden = !saved;
-      menu.querySelector('.ex-theme-note').textContent = saved ? 'Default: ' + byId[saved.id].label + ', ' + saved.mode + '.' : 'Default: the page theme.';
+      menu.querySelector('.ex-theme-note').textContent = !reg.themes.length
+        ? 'Themes load from the Arc Forge themes release. This copy does not store them.'
+        : (saved ? 'Default: ' + byId[saved.id].label + ', ' + saved.mode + '.' : 'Default: the page theme.');
     }
-    function openMenu() { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); paint(); (opts.filter(function (o) { return o.tabIndex === 0; })[0] || opts[0]).focus(); }
+    function openMenu() {
+      menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); paint();
+      var first = opts.filter(function (o) { return o.tabIndex === 0; })[0] || opts[0];
+      if (first) first.focus();
+    }
     function closeMenu(focus) { if (menu.hidden) return; menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); show(want()); if (focus) btn.focus(); }
     btn.addEventListener('click', function () { if (menu.hidden) openMenu(); else closeMenu(true); });
     // Live preview: pointing at or focusing a theme shows it on the page; leaving the list shows the choice again.

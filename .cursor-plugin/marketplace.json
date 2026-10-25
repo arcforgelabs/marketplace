@@ -29,7 +29,7 @@
     {
       "name": "explainer",
       "source": "explainer",
-      "description": "Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme kit and a format guide for replies."
+      "description": "Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue and a format guide. Theme values come from the Arc Forge themes release."
     },
     {
       "name": "mermaid-diagrams",

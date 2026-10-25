@@ -1,6 +1,6 @@
 # explainer
 
-Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme kit and a format guide for replies.
+Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme engine, and a format guide for replies. Theme values and logos come from the `@arcforgelabs/themes` release pinned in `package.json` (`github:arcforgelabs/themes#v2026.10.1`). This package does not store that catalog.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
 (`components/skills/explainer`, staged from `0671fd84aabf`). Fix and review it

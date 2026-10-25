@@ -117,5 +117,5 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - An unknown is a question mark or a dashed line. A guess is not drawn as a fact.
 - Rows keep 44px; the rail picks the right section.
 - Light and dark both work in every theme; 320px has no sideways scroll.
-- One theme button. Contrast meets Web Content Accessibility Guidelines, level AA, in every theme (`scripts/check`).
+- One theme button. Contrast, the token contract, and the diagram colour key are checked in arcforgelabs/themes. A page check covers the page itself.
 - A headless browser test shows no page errors and opens every item and every view.

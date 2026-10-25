@@ -11,6 +11,6 @@
     {"shot": "4 The data block: chart view", "do": "scroll", "target": "#fig-views"},
     {"shot": "4 Switch to the table view", "do": "click", "target": "#fig-views .ex-seg button[data-view='table']", "expect": "#fig-views table"},
     {"shot": "5 The theme button opens the menu", "do": "click", "target": ".ex-theme-btn", "expect": ".ex-theme-menu"},
-    {"shot": "6 Pick Harbour: the page changes in place", "do": "click", "target": ".ex-theme-opt[data-id='harbour']", "hold": 1800}
+    {"shot": "6 Close the theme menu. Theme values are not stored in this copy.", "do": "press", "key": "Escape"}
   ]
 }
