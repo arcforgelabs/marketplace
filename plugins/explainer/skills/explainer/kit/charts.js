@@ -1,4 +1,4 @@
-/* Explainer charts (references/charts.md). Data-driven SVG for the top-rated Chart Lab kinds.
+/* Explainer charts (references/charts.md). Data-driven vector graphics for the top-rated Chart Lab kinds.
    Each renderer draws into an element (usually a .ex-figure), puts an .ex-hot rect with data-ex
    over every part, and adds inline items to window.EX. Load this file and call the renderers
    BEFORE explainer.js, so the runtime finds every [data-ex].
@@ -17,7 +17,7 @@
     (window.EX = window.EX || {})[k] = ex; return k;
   }
   function mod(base, layer) { return base + (layer ? ' ' + base + '--' + layer : ''); }
-  // Corner radius from the token contract: a class sets the CSS rx property; the attribute is the no-CSS fallback.
+  // Corner radius from the token contract: a class sets the rx property; the attribute is the fallback when styles do not apply.
   function rc(rx) { return rx >= 14 ? 'ex-r-lg' : rx >= 10 ? 'ex-r-md' : 'ex-r-sm'; }
   function hot(k, x, y, w, h, rx) {
     rx = rx == null ? 10 : rx;
@@ -39,8 +39,8 @@
       : '<text class="ex-t" x="' + (x + 14) + '" y="' + (cy + 5) + '">' + esc(title) + '</text>';
   }
 
-  /* ConnectionDiagram: parts as boxes in columns, joined by labelled arrows. The default diagram.
-     {cols: ["CLIENT", "HOST"], nodes: [{id, col, row, title, sub, layer, ex}],
+  /* Connection diagram: parts as boxes in columns, joined by labelled arrows. A structure view.
+     {cols: ["Reader", "Page"], nodes: [{id, col, row, title, sub, layer, ex}],
       edges: [{from, to, label, layer, ex}], boxW, boxH, gapX, gapY} */
   function connection(el, o) {
     var bw = o.boxW || 200, bh = o.boxH || 62, gx = o.gapX || 120, gy = o.gapY || 34, top = o.cols ? 44 : 16, pad = 20;
@@ -100,7 +100,7 @@
   function capacity(el, o) {
     var lw = o.labelW || 150, bw = o.barW || 560, bh = 30, gy = 30, pad = 20, top = 34, body = '', hots = '';
     var W = pad * 2 + lw + bw + 60, H = top + o.rows.length * (bh + gy) + 10, u = o.unit || '';
-    body += '<text class="ex-tm" x="' + (pad + lw) + '" y="20">0</text><text class="ex-tm" x="' + (pad + lw + bw) + '" y="20" text-anchor="end">' + esc(o.limit + u) + ' LIMIT</text>';
+    body += '<text class="ex-tm" x="' + (pad + lw) + '" y="20">0</text><text class="ex-tm" x="' + (pad + lw + bw) + '" y="20" text-anchor="end">' + esc(o.limit + u) + ' limit</text>';
     o.rows.forEach(function (r, i) {
       var y = top + i * (bh + gy), x = pad + lw, used = 0;
       body += '<text class="ex-t" x="' + pad + '" y="' + (y + 20) + '">' + esc(r.label) + '</text>';
@@ -132,7 +132,7 @@
         var fill = t < .5 ? 'color-mix(in oklab, var(--seq-2) ' + Math.round(t * 200) + '%, var(--seq-1))' : 'color-mix(in oklab, var(--seq-3) ' + Math.round((t - .5) * 200) + '%, var(--seq-2))';
         body += '<rect class="ex-cell" x="' + (x + 1) + '" y="' + (y + 1) + '" width="' + (cw - 2) + '" height="' + (ch - 2) + '" rx="4" style="fill:' + fill + '"/>';
         body += '<text class="ex-tl" x="' + (x + cw / 2) + '" y="' + (y + ch / 2 + 4) + '" text-anchor="middle" style="fill:' + inkOn(el, fill) + '">' + esc(fmt(v)) + '</text>';
-        var ex = o.cellEx ? o.cellEx(r, c, v) : { t: r + ' · ' + c, l: 'HEATMAP', d: 'This cell is ' + r + ' against ' + c + '.', x: ['Its value is ' + fmt(v) + '.'] };
+        var ex = o.cellEx ? o.cellEx(r, c, v) : { t: r + ' · ' + c, l: 'Heatmap', d: 'This cell is ' + r + ' against ' + c + '.', x: ['Its value is ' + fmt(v) + '.'] };
         hots += hot(key(ex, 'cell'), x + 1, y + 1, cw - 2, ch - 2, 4);
       });
     });
@@ -158,7 +158,7 @@
       var a = byId[l.from], b = byId[l.to], h = l.value * scale, x1 = a.x + nw, x2 = b.x, y1 = a.oy, y2 = b.iy, mx = (x1 + x2) / 2;
       a.oy += h; b.iy += h;
       var d = 'M' + x1 + ' ' + y1 + ' C' + mx + ' ' + y1 + ' ' + mx + ' ' + y2 + ' ' + x2 + ' ' + y2 + ' V' + (y2 + h) + ' C' + mx + ' ' + (y2 + h) + ' ' + mx + ' ' + (y1 + h) + ' ' + x1 + ' ' + (y1 + h) + ' Z';
-      var k = key(l.ex || { t: a.title + ' → ' + b.title, l: 'FLOW', d: 'This flow goes from ' + a.title + ' to ' + b.title + '.', x: ['It carries ' + l.value + u + '.', 'That is ' + Math.round(100 * l.value / a.v) + '% of ' + a.title + '.'] }, 'flow');
+      var k = key(l.ex || { t: a.title + ' → ' + b.title, l: 'Flow', d: 'This flow goes from ' + a.title + ' to ' + b.title + '.', x: ['It carries ' + l.value + u + '.', 'That is ' + Math.round(100 * l.value / a.v) + '% of ' + a.title + '.'] }, 'flow');
       body += '<path d="' + d + '" style="fill:' + (l.layer === 'key' ? 'var(--accent)' : l.layer === 'alt' ? 'var(--accent-2)' : 'var(--border-strong)') + ';fill-opacity:' + (l.layer ? .35 : .5) + '"/>';
       hots += '<path class="ex-hot" data-ex="' + esc(k) + '" d="' + d + '"/>';
     });
@@ -166,7 +166,7 @@
       body += '<rect class="ex-cell" x="' + n.x + '" y="' + n.y + '" width="' + nw + '" height="' + Math.max(n.h, 2) + '" rx="3" style="fill:' + (n.layer === 'key' ? 'var(--accent)' : n.layer === 'alt' ? 'var(--accent-2)' : 'var(--text-strong)') + '"/>';
       var tx = n.left ? n.x - 8 : n.x + nw + 8, anchor = n.left ? ' text-anchor="end"' : '';
       body += '<text class="ex-t"' + anchor + ' x="' + tx + '" y="' + (n.y + n.h / 2 + 1) + '">' + esc(n.title) + '</text><text class="ex-ts"' + anchor + ' x="' + tx + '" y="' + (n.y + n.h / 2 + 17) + '">' + esc(n.v + u) + '</text>';
-      hots += hot(key(n.ex || { t: n.title, l: 'NODE', d: n.title + ' is one stage of the flow.', x: [n.title + ' carries ' + n.v + u + '.'] }, n.id), n.left ? n.x - labelW + 10 : n.x - 2, n.y, nw + labelW - 10, Math.max(n.h, 34), 4);
+      hots += hot(key(n.ex || { t: n.title, l: 'Node', d: n.title + ' is one stage of the flow.', x: [n.title + ' carries ' + n.v + u + '.'] }, n.id), n.left ? n.x - labelW + 10 : n.x - 2, n.y, nw + labelW - 10, Math.max(n.h, 34), 4);
     });
     return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
   }
@@ -204,7 +204,7 @@
       body += '<text class="ex-t" x="' + pad + '" y="' + (y + 18) + '">' + esc(r.label) + '</text>';
       body += '<rect class="ex-bar ' + s + '" x="' + (pad + lw) + '" y="' + y + '" width="' + w + '" height="' + bh + '" rx="4"/>';
       body += '<text class="ex-tl" x="' + (pad + lw + w + 8) + '" y="' + (y + 17) + '">' + esc(r.value + u) + '</text>';
-      hots += hot(key(r.ex || { t: r.label, l: o.layer || 'VALUE', d: r.label + ' is one row of ' + (o.label || 'this data') + '.', x: ['Its value is ' + r.value + u + '.'] }, 'row' + i), pad, y - 4, lw + w + 60, bh + 8, 4);
+      hots += hot(key(r.ex || { t: r.label, l: o.layer || 'Value', d: r.label + ' is one row of ' + (o.label || 'this data') + '.', x: ['Its value is ' + r.value + u + '.'] }, 'row' + i), pad, y - 4, lw + w + 60, bh + 8, 4);
     });
     return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
   }
@@ -242,7 +242,7 @@
   function data(el, o) {
     var u = o.unit || '', sum = o.rows.reduce(function (s, r) { return s + r.value; }, 0), limit = o.limit || sum;
     var rows = o.rows.map(function (r) {
-      return { label: r.label, value: r.value, layer: r.layer, ex: r.ex || { t: r.label, l: o.layer || 'VALUE', d: r.label + ' is one part of ' + (o.label || 'the total') + '.', x: ['Its value is ' + r.value + u + '.', 'That is ' + Math.round(100 * r.value / limit) + '% of ' + limit + u + '.'] } };
+      return { label: r.label, value: r.value, layer: r.layer, ex: r.ex || { t: r.label, l: o.layer || 'Value', d: r.label + ' is one part of ' + (o.label || 'the total') + '.', x: ['Its value is ' + r.value + u + '.', 'That is ' + Math.round(100 * r.value / limit) + '% of ' + limit + u + '.'] } };
     });
     var all = {
       chart: { id: 'chart', label: 'Chart', draw: function (b) { bars(b, { label: o.label, unit: u, rows: rows }); } },
