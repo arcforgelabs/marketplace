@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Explainer kit</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../kit/tokens.css">
 <link rel="stylesheet" href="../kit/explainer.css">
 </head>
@@ -87,7 +86,7 @@ window.EX = {
   ]},
   "tokens": {"t": "tokens.css", "l": "Kit", "d": "tokens.css is the file of colours, fonts, and corner radii for the page.", "x": [
     "It exists so every theme speaks the same names.",
-    "It sets light values and dark values, and it holds the diagram colour key.",
+    "It names the colours, fonts, and corner radii. The values come from the themes release.",
     "The style sheet and the charts read these names. They do not invent colours.",
     "The groups on this page sum to 27 names.",
     "A page fails the check when it writes a colour as a hex value.",
@@ -187,7 +186,7 @@ window.EX = {
     "It connects the token file to every diagram that marks a family of parts.",
     "The key is separate from the five chart-series colours.",
     "A page fails when it uses a series colour to mean a diagram family, or the reverse.",
-    "The values are copied into kit/tokens.css. Do not invent new meanings here."
+    "The values live in the themes release. This skill does not copy them."
   ]},
   "t.pick": {"t": "Viewer's pick", "l": "First", "d": "The viewer's pick is the theme chosen in the menu for this view.", "x": [
     "It exists so the reader can change the page without editing it.",
@@ -217,9 +216,9 @@ window.EX = {
     "It exists so the page has colours before the reader picks a theme.",
     "Its light and dark values live in the token file, and the page shows them before the runtime starts.",
     "It connects to the theme engine as the fourth source.",
-    "It is 1 of 4 themes in the registry.",
+    "It is the fallback id when the release registry has not loaded.",
     "It loses when the viewer has a pick, a saved default, or a page theme.",
-    "The values are in kit/tokens.css."
+    "The values come from the themes release, not from a copy in this skill."
   ]},
   "t.engine": {"t": "Theme engine", "l": "Kit", "d": "The theme engine is the part of the runtime that applies a theme.", "x": [
     "It exists so the page has one place that changes theme.",
@@ -231,9 +230,9 @@ window.EX = {
   ]},
   "t.reg": {"t": "themes.js", "l": "Kit", "d": "themes.js is the theme registry: one token set for each theme.", "x": [
     "It exists so the theme engine can apply a theme by name.",
-    "A sync step writes it from the theme catalogue and from Flow.",
-    "It connects those sources to the token names the page already uses.",
-    "This copy holds 4 themes.",
+    "A later tools change fills it from the themes release. This copy does not store the themes.",
+    "It connects that release to the token names the page already uses.",
+    "This copy holds no theme values.",
     "Hand edits are lost the next time the sync step runs.",
     "The file is kit/themes.js."
   ]},
@@ -533,7 +532,7 @@ ExCharts.connection(document.getElementById('fig-theme'), {
     {id: 'page', col: 0, row: 2, title: 'Page theme', sub: 'author choice', ex: 't.page'},
     {id: 'fb', col: 0, row: 3, title: 'Arc Forge', sub: 'fallback', layer: 'off', ex: 't.fb'},
     {id: 'engine', col: 1, row: 1, title: 'Theme engine', sub: 'in the runtime', layer: 'key', ex: 't.engine'},
-    {id: 'reg', col: 1, row: 3, title: 'themes.js', sub: '4 token sets', layer: 'alt', ex: 't.reg'},
+    {id: 'reg', col: 1, row: 3, title: 'themes.js', sub: 'release pin', layer: 'alt', ex: 't.reg'},
     {id: 'out', col: 2, row: 1, title: 'Page tokens', sub: 'named values', ex: 't.out'}
   ],
   edges: [
