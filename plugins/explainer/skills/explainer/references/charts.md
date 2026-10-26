@@ -4,7 +4,7 @@ Chart Lab drew 42 kinds of chart on the same subject. Each kind was rated: great
 
 Source: Chart Lab, `references/chart-lab.html` (ratings of 2026-10-19). The page source holds a hand-drawn vector graphic for every kind: copy from it when `charts.js` has no renderer.
 
-`charts.js` column: the renderer name in `kit/charts.js`, or `—` (draw it by hand). The kit also has helpers that are not rated kinds: `bars` (one bar per row, series colours), `table` (a CrispTable from rows) and `data` (one data set with a chart, table and diagram view switch).
+`charts.js` column: the renderer name in `kit/charts.js`, or `—` (draw it by hand). The kit also has helpers that are not rated kinds: `bars` (one bar per row, series colours), `table` (a CrispTable from rows; the last resort, see pattern.md), `data` (one data set with a chart, table and diagram view switch) and `tabs` (one figure per item, such as a customer or an option).
 
 ## Great
 
@@ -29,9 +29,9 @@ Source: Chart Lab, `references/chart-lab.html` (ratings of 2026-10-19). The page
 | Capacity bars | Amounts | `capacity` | One limit split into named parts, one bar per step. |
 | Treemap | Amounts | — | How much space each part takes. Add details on tap. |
 | Sunburst | Amounts | — | Related parts on the inner ring, their details on the outer ring. |
-| Timeline | Time and order | — | Events and waits on a real time scale. One home for a HYPOTHETICAL story strip. |
+| Timeline | Time and order | `timeline` | Events and waits on a real time scale. One home for a HYPOTHETICAL story strip. |
 | Snake flow | Time and order | — | A long line of steps that wraps. One home for a HYPOTHETICAL story strip. |
-| Tree | Hierarchy | — | Parent and child parts. |
+| Tree | Hierarchy | `tree` | Parent and child parts. |
 | Fishbone, version 2 | Hierarchy | — | Causes of one failure; each failure path is obvious. |
 | Arc diagram, version 2 | Networks | — | Parts on one line, links as arcs, with focus on hover. |
 | Grouped graph | Networks | — | Parts in hulls. Good in sketch style. |

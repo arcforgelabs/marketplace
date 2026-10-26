@@ -15,45 +15,55 @@
 </section>
 
 <section class="ex-section" id="build">
-  <div class="ex-head"><span class="ex-n">01</span><h2>How a page works</h2><p>A page is the page data plus four kit files. The table compares the same parts the diagram joins.</p></div>
-  <div class="ex-figure" id="fig-build"></div>
-  <div class="ex-figure" id="fig-build-table"></div>
+  <div class="ex-head"><span class="ex-n">01</span><h2>How a page works</h2><p>A page is the page data plus four kit files. The switch shows the same parts as a table.</p></div>
+  <div id="fig-build"></div>
   <details class="ex-facts" data-def="A page is built from page data, the chart module, and the runtime."></details>
 </section>
 
 <section class="ex-section" id="where">
-  <div class="ex-head"><span class="ex-n">02</span><h2>Where a page goes</h2><p>One page source can be opened in more than one place. The table compares those places.</p></div>
-  <div class="ex-figure" id="fig-where"></div>
-  <div class="ex-figure" id="fig-where-table"></div>
+  <div class="ex-head"><span class="ex-n">02</span><h2>Where a page goes</h2><p>One page source can be opened in more than one place. The switch shows the same places as a table.</p></div>
+  <div id="fig-where"></div>
   <details class="ex-facts" data-def="One source page can be delivered in more than one place."></details>
 </section>
 
 <section class="ex-section" id="pick">
-  <div class="ex-head"><span class="ex-n">03</span><h2>Which chart to pick</h2><p>Chart Lab rated 42 chart kinds on one subject. The heatmap counts them, and the table compares the same counts.</p></div>
-  <div class="ex-figure" id="fig-heat"></div>
-  <div class="ex-figure" id="fig-pick-table"></div>
+  <div class="ex-head"><span class="ex-n">03</span><h2>Which chart to pick</h2><p>Chart Lab rated 42 chart kinds on one subject. The heatmap counts them; the switch shows the same counts as a table.</p></div>
+  <div id="fig-heat"></div>
   <div class="ex-figure" id="fig-sankey"></div>
   <details class="ex-facts" data-def="Chart Lab rates each kind of chart: great, good, meh, or poor."></details>
 </section>
 
 <section class="ex-section" id="cover">
-  <div class="ex-head"><span class="ex-n">04</span><h2>What the kit draws</h2><p>The chart module draws 5 of the 42 rated kinds from data. The table compares those counts with the full catalogue.</p></div>
-  <div class="ex-figure" id="fig-cap"></div>
-  <div class="ex-figure" id="fig-cap-table"></div>
+  <div class="ex-head"><span class="ex-n">04</span><h2>What the kit draws</h2><p>The chart module draws 7 of the 42 rated kinds from data. The switch shows the same counts as a table.</p></div>
+  <div id="fig-cap"></div>
   <details class="ex-facts" data-def="Coverage is the share of rated kinds that the chart module draws from data."></details>
 </section>
 
 <section class="ex-section" id="theme">
-  <div class="ex-head"><span class="ex-n">05</span><h2>How the theme is chosen</h2><p>A theme is one set of tokens for the page. The table lists the same four sources in order.</p></div>
-  <div class="ex-figure" id="fig-theme"></div>
-  <div class="ex-figure" id="fig-theme-table"></div>
+  <div class="ex-head"><span class="ex-n">05</span><h2>How the theme is chosen</h2><p>A theme is one set of tokens for the page. The switch lists the same four sources as a table.</p></div>
+  <div id="fig-theme"></div>
   <details class="ex-facts" data-def="The theme engine picks one theme from four sources, in order."></details>
 </section>
 
 <section class="ex-section" id="views">
-  <div class="ex-head"><span class="ex-n">06</span><h2>One data set, two families</h2><p>The bars show how many tokens sit in each group. The table compares those same groups.</p></div>
+  <div class="ex-head"><span class="ex-n">06</span><h2>One data set, two families</h2><p>The bars show how many tokens sit in each group. The switch shows the same groups as a table.</p></div>
   <div id="fig-views"></div>
   <details class="ex-facts" data-def="The token contract is the list of names that every theme sets."></details>
+</section>
+
+<section class="ex-section" id="history">
+  <div class="ex-head"><span class="ex-n">07</span><h2>How the kit grew</h2><p>A timeline puts dated changes on a real time scale. Use it for history, never a table of dates.</p></div>
+  <div class="ex-figure" id="fig-history"></div>
+</section>
+
+<section class="ex-section" id="causes">
+  <div class="ex-head"><span class="ex-n">08</span><h2>Why a page fills with tables</h2><p>A tree shows one result and the causes under it. Use it for causes, ownership or a breakdown.</p></div>
+  <div class="ex-figure" id="fig-causes"></div>
+</section>
+
+<section class="ex-section" id="tabs">
+  <div class="ex-head"><span class="ex-n">09</span><h2>One figure per option</h2><p>Tabs switch between items of the same kind. The reader picks one; the page does not stack them.</p></div>
+  <div id="fig-tabs"></div>
 </section>
 </div>
 
@@ -73,7 +83,7 @@ window.EX = {
     "It exists so a page can draw a rated chart without drawing each box by hand.",
     "It writes a vector graphic and a hot area for every part.",
     "It connects page data to the runtime, and it must run before the runtime.",
-    "It draws 5 of the 42 rated kinds, plus bars, a table, and a view switch.",
+    "It draws 7 of the 42 rated kinds, plus bars, a table, tabs, and a view switch.",
     "A kind with no renderer here is copied by hand from references/chart-lab.html.",
     "The kind list is in references/charts.md."
   ]},
@@ -300,7 +310,7 @@ window.EX = {
     "They sit in every family: 4, 3, 7, 2, and 2.",
     "The connection diagram is in this tier. Use it when connections are the best way to show the subject.",
     "Use a good kind when no great kind fits the subject.",
-    "The chart module draws 2 of these 18 from data.",
+    "The chart module draws 4 of these 18 from data.",
     "The list is in references/charts.md."
   ]},
   "tier.meh": {"t": "Meh", "l": "Tier", "d": "Meh is the third rating in Chart Lab.", "x": [
@@ -327,11 +337,11 @@ window.EX = {
     "The other 4 great kinds are copied by hand from references/chart-lab.html.",
     "references/charts.md names the renderer for each kind."
   ]},
-  "cov.good": {"t": "Good kinds in the chart module", "l": "Coverage", "d": "The chart module draws 2 of the 18 good kinds from data.", "x": [
-    "These 2 exist so a structure view and an amount view are both available from data.",
-    "The module draws the connection diagram and the capacity bars.",
+  "cov.good": {"t": "Good kinds in the chart module", "l": "Coverage", "d": "The chart module draws 4 of the 18 good kinds from data.", "x": [
+    "These 4 exist so structure, amount, time, and hierarchy views are all available from data.",
+    "The module draws the connection diagram, the capacity bars, the timeline, and the tree.",
     "They connect the good tier to kit/charts.js.",
-    "2 of 18 good kinds is 2 of 42 in the catalogue, about 5 percent.",
+    "4 of 18 good kinds is 4 of 42 in the catalogue, about 10 percent.",
     "A connection diagram still needs a second view from another family.",
     "references/charts.md names the renderer for each kind."
   ]},
@@ -377,59 +387,63 @@ window.EX = {
   ]}
 };
 
-ExCharts.connection(document.getElementById('fig-build'), {
-  label: 'How a page works', cols: ['Source', 'Kit', 'Runtime', 'Reader'], boxW: 170, gapX: 110,
-  nodes: [
-    {id: 'data', col: 0, row: 0, title: 'Page data', sub: 'part entries', ex: 'data'},
-    {id: 'tokens', col: 0, row: 1, title: 'tokens.css', sub: 'colours, fonts', ex: 'tokens'},
-    {id: 'charts', col: 1, row: 0, title: 'charts.js', sub: 'draws the charts', layer: 'alt', ex: 'charts'},
-    {id: 'styles', col: 1, row: 1, title: 'explainer.css', sub: 'page styles', ex: 'styles'},
-    {id: 'runtime', col: 2, row: 0, title: 'explainer.js', sub: 'runtime', layer: 'alt', ex: 'runtime'},
-    {id: 'pop', col: 3, row: 0, title: 'Pop-up', sub: 'definition first', layer: 'key', ex: 'pop'}
-  ],
-  edges: [
-    {from: 'data', to: 'charts', label: 'parts'},
-    {from: 'tokens', to: 'styles', label: 'values'},
-    {from: 'charts', to: 'runtime', label: 'hot areas', ex: 'e.svg'},
-    {from: 'styles', to: 'runtime', label: 'styles', offset: 14},
-    {from: 'runtime', to: 'pop', label: 'click', layer: 'key'}
-  ]
-});
-ExCharts.table(document.getElementById('fig-build-table'), {
-  cols: ['Part', 'Job', 'Connects to', 'Stops when'],
-  rows: [
-    {cells: ['Page data', 'Names every part', 'Chart module', 'An entry is missing'], ex: 'data'},
-    {cells: ['tokens.css', 'Holds the colour names', 'explainer.css', 'A raw colour is written'], ex: 'tokens'},
-    {cells: ['charts.js', 'Draws the charts', 'The runtime', 'It runs too late'], ex: 'charts'},
-    {cells: ['explainer.css', 'Styles the parts', 'The tokens', 'It invents a colour'], ex: 'styles'},
-    {cells: ['explainer.js', 'Opens pop-ups', 'The hot areas', 'A target is missing'], ex: 'runtime'},
-    {cells: ['Pop-up', 'Holds the depth', 'One part', 'The facts repeat the definition'], ex: 'pop'}
-  ]
-});
+ExCharts.views(document.getElementById('fig-build'), {label: 'Kit parts', views: [
+  {id: 'figure', label: 'Diagram', draw: function (b) { ExCharts.connection(b, {
+    label: 'How a page works', cols: ['Source', 'Kit', 'Runtime', 'Reader'], boxW: 170, gapX: 110,
+    nodes: [
+      {id: 'data', col: 0, row: 0, title: 'Page data', sub: 'part entries', ex: 'data'},
+      {id: 'tokens', col: 0, row: 1, title: 'tokens.css', sub: 'colours, fonts', ex: 'tokens'},
+      {id: 'charts', col: 1, row: 0, title: 'charts.js', sub: 'draws the charts', layer: 'alt', ex: 'charts'},
+      {id: 'styles', col: 1, row: 1, title: 'explainer.css', sub: 'page styles', ex: 'styles'},
+      {id: 'runtime', col: 2, row: 0, title: 'explainer.js', sub: 'runtime', layer: 'alt', ex: 'runtime'},
+      {id: 'pop', col: 3, row: 0, title: 'Pop-up', sub: 'definition first', layer: 'key', ex: 'pop'}
+    ],
+    edges: [
+      {from: 'data', to: 'charts', label: 'parts'},
+      {from: 'tokens', to: 'styles', label: 'values'},
+      {from: 'charts', to: 'runtime', label: 'hot areas', ex: 'e.svg'},
+      {from: 'styles', to: 'runtime', label: 'styles', offset: 14},
+      {from: 'runtime', to: 'pop', label: 'click', layer: 'key'}
+    ]
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Part', 'Job', 'Connects to', 'Stops when'],
+    rows: [
+      {cells: ['Page data', 'Names every part', 'Chart module', 'An entry is missing'], ex: 'data'},
+      {cells: ['tokens.css', 'Holds the colour names', 'explainer.css', 'A raw colour is written'], ex: 'tokens'},
+      {cells: ['charts.js', 'Draws the charts', 'The runtime', 'It runs too late'], ex: 'charts'},
+      {cells: ['explainer.css', 'Styles the parts', 'The tokens', 'It invents a colour'], ex: 'styles'},
+      {cells: ['explainer.js', 'Opens pop-ups', 'The hot areas', 'A target is missing'], ex: 'runtime'},
+      {cells: ['Pop-up', 'Holds the depth', 'One part', 'The facts repeat the definition'], ex: 'pop'}
+    ]
+  }); }}
+]});
 
-ExCharts.container(document.getElementById('fig-where'), {
-  label: 'Where a page goes', zoneCols: 3, perRow: 1, itemW: 220,
-  zones: [
-    {title: 'Kit', ex: 'z.kit', items: [
-      {title: 'tokens.css', ex: 'tokens'}, {title: 'explainer.css', ex: 'styles'},
-      {title: 'charts.js', layer: 'alt', ex: 'charts'}, {title: 'explainer.js', layer: 'alt', ex: 'runtime'}]},
-    {title: 'Outputs', ex: 'z.out', items: [
-      {title: 'Bundled file', sub: 'one file', ex: 'o.art'},
-      {title: 'Folder server', sub: 'same computer', ex: 'o.local'},
-      {title: 'Docs site', sub: 'copy the kit', layer: 'off', ex: 'o.site'}]},
-    {title: 'References', ex: 'z.ref', items: [
-      {title: 'Pattern rules', ex: 'r.pattern'}, {title: 'Chart catalogue', ex: 'r.charts'},
-      {title: 'Diagram colour key', sub: 'fixed meanings', ex: 'r.key'}]}
-  ]
-});
-ExCharts.table(document.getElementById('fig-where-table'), {
-  cols: ['Place', 'What the reader gets', 'What you copy', 'Stops when'],
-  rows: [
-    {cells: ['Bundled file', 'One web page', 'The kit, inlined', 'A path points outside'], ex: 'o.art'},
-    {cells: ['Folder server', 'The folder in a browser', 'Nothing', 'The server is in the wrong folder'], ex: 'o.local'},
-    {cells: ['Docs site', 'A page on the product site', 'One kit into the assets', 'A second kit is edited alone'], ex: 'o.site'}
-  ]
-});
+ExCharts.views(document.getElementById('fig-where'), {label: 'Where the kit sits', views: [
+  {id: 'figure', label: 'Diagram', draw: function (b) { ExCharts.container(b, {
+    label: 'Where a page goes', zoneCols: 3, perRow: 1, itemW: 220,
+    zones: [
+      {title: 'Kit', ex: 'z.kit', items: [
+        {title: 'tokens.css', ex: 'tokens'}, {title: 'explainer.css', ex: 'styles'},
+        {title: 'charts.js', layer: 'alt', ex: 'charts'}, {title: 'explainer.js', layer: 'alt', ex: 'runtime'}]},
+      {title: 'Outputs', ex: 'z.out', items: [
+        {title: 'Bundled file', sub: 'one file', ex: 'o.art'},
+        {title: 'Folder server', sub: 'same computer', ex: 'o.local'},
+        {title: 'Docs site', sub: 'copy the kit', layer: 'off', ex: 'o.site'}]},
+      {title: 'References', ex: 'z.ref', items: [
+        {title: 'Pattern rules', ex: 'r.pattern'}, {title: 'Chart catalogue', ex: 'r.charts'},
+        {title: 'Diagram colour key', sub: 'fixed meanings', ex: 'r.key'}]}
+    ]
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Place', 'What the reader gets', 'What you copy', 'Stops when'],
+    rows: [
+      {cells: ['Bundled file', 'One web page', 'The kit, inlined', 'A path points outside'], ex: 'o.art'},
+      {cells: ['Folder server', 'The folder in a browser', 'Nothing', 'The server is in the wrong folder'], ex: 'o.local'},
+      {cells: ['Docs site', 'A page on the product site', 'One kit into the assets', 'A second kit is edited alone'], ex: 'o.site'}
+    ]
+  }); }}
+]});
 
 var FAMILIES = [
   {id: 'boxes', title: 'Boxes and arrows', ex: 'fam.boxes', tiers: {
@@ -464,30 +478,32 @@ function linkEx(f, t) {
   ]};
 }
 
-ExCharts.heatmap(document.getElementById('fig-heat'), {
-  label: 'Chart kinds per family and tier', labelW: 170, cellW: 90,
-  rows: FAMILIES.map(function (f) { return f.title; }),
-  cols: TIERS.map(function (t) { return t.title; }),
-  values: FAMILIES.map(function (f) { return TIERS.map(function (t) { return f.tiers[t.id].length; }); }),
-  cellEx: function (r, c, v) {
-    var f = FAMILIES.filter(function (x) { return x.title === r; })[0], list = f.tiers[c.toLowerCase()], total = familyTotal(f);
-    return {t: r + ' · ' + c, l: 'Chart lab', d: v + (v === 1 ? ' chart kind in ' : ' chart kinds in ') + r.toLowerCase() + (v === 1 ? ' is rated ' : ' are rated ') + c.toLowerCase() + '.', x: [
-      'This cell exists so a gap or a cluster in the ratings is visible.',
-      'Chart Lab scored every kind on one subject, then this grid counted the result.',
-      'The cell connects the ' + r.toLowerCase() + ' family to the ' + c.toLowerCase() + ' rating.',
-      'The count is ' + v + ' of ' + total + ' kinds in this family, and ' + v + ' of 42 in the catalogue.',
-      list.length ? 'The kinds are: ' + list.join(', ') + '.' : 'No kind has this rating.',
-      'The shortlist for a page is the great and good kinds.',
-      'The notes are in references/charts.md.'
-    ]};
-  }
-});
-ExCharts.table(document.getElementById('fig-pick-table'), {
-  cols: ['Family', 'Great', 'Good', 'Meh', 'Poor', 'Kinds'],
-  rows: FAMILIES.map(function (f) {
-    return {cells: [f.title, String(f.tiers.great.length), String(f.tiers.good.length), String(f.tiers.meh.length), String(f.tiers.poor.length), String(familyTotal(f))], ex: f.ex};
-  })
-});
+ExCharts.views(document.getElementById('fig-heat'), {label: 'Chart ratings', views: [
+  {id: 'figure', label: 'Heatmap', draw: function (b) { ExCharts.heatmap(b, {
+    label: 'Chart kinds per family and tier', labelW: 170, cellW: 90,
+    rows: FAMILIES.map(function (f) { return f.title; }),
+    cols: TIERS.map(function (t) { return t.title; }),
+    values: FAMILIES.map(function (f) { return TIERS.map(function (t) { return f.tiers[t.id].length; }); }),
+    cellEx: function (r, c, v) {
+      var f = FAMILIES.filter(function (x) { return x.title === r; })[0], list = f.tiers[c.toLowerCase()], total = familyTotal(f);
+      return {t: r + ' · ' + c, l: 'Chart lab', d: v + (v === 1 ? ' chart kind in ' : ' chart kinds in ') + r.toLowerCase() + (v === 1 ? ' is rated ' : ' are rated ') + c.toLowerCase() + '.', x: [
+        'This cell exists so a gap or a cluster in the ratings is visible.',
+        'Chart Lab scored every kind on one subject, then this grid counted the result.',
+        'The cell connects the ' + r.toLowerCase() + ' family to the ' + c.toLowerCase() + ' rating.',
+        'The count is ' + v + ' of ' + total + ' kinds in this family, and ' + v + ' of 42 in the catalogue.',
+        list.length ? 'The kinds are: ' + list.join(', ') + '.' : 'No kind has this rating.',
+        'The shortlist for a page is the great and good kinds.',
+        'The notes are in references/charts.md.'
+      ]};
+    }
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Family', 'Great', 'Good', 'Meh', 'Poor', 'Kinds'],
+    rows: FAMILIES.map(function (f) {
+      return {cells: [f.title, String(f.tiers.great.length), String(f.tiers.good.length), String(f.tiers.meh.length), String(f.tiers.poor.length), String(familyTotal(f))], ex: f.ex};
+    })
+  }); }}
+]});
 ExCharts.sankey(document.getElementById('fig-sankey'), {
   label: 'Chart kinds by family and tier', unit: ' kinds', height: 360,
   nodes: FAMILIES.map(function (f) {
@@ -502,58 +518,62 @@ ExCharts.sankey(document.getElementById('fig-sankey'), {
   }))
 });
 
-ExCharts.capacity(document.getElementById('fig-cap'), {
-  label: 'Kit coverage', limit: 42, unit: '',
-  rows: [
-    {label: 'Rated kinds', parts: [
-      {label: 'Great 7', value: 7, layer: 'key', ex: 'tier.great'},
-      {label: 'Good 18', value: 18, layer: 'alt', ex: 'tier.good'},
-      {label: 'Meh 14', value: 14, ex: 'tier.meh'},
-      {label: 'Poor 3', value: 3, layer: 'off', ex: 'tier.poor'}]},
-    {label: 'charts.js', parts: [
-      {label: 'Great 3', value: 3, layer: 'key', ex: 'cov.great'},
-      {label: 'Good 2', value: 2, layer: 'alt', ex: 'cov.good'}]}
-  ]
-});
-ExCharts.table(document.getElementById('fig-cap-table'), {
-  cols: ['Tier', 'Rated kinds', 'Share of 42', 'Drawn from data'],
-  rows: [
-    {cells: ['Great', '7', '17 percent', '3'], ex: 'tier.great'},
-    {cells: ['Good', '18', '43 percent', '2'], ex: 'tier.good'},
-    {cells: ['Meh', '14', '33 percent', '0'], ex: 'tier.meh'},
-    {cells: ['Poor', '3', '7 percent', '0'], ex: 'tier.poor'}
-  ]
-});
+ExCharts.views(document.getElementById('fig-cap'), {label: 'Renderer coverage', views: [
+  {id: 'figure', label: 'Bars', draw: function (b) { ExCharts.capacity(b, {
+    label: 'Kit coverage', limit: 42, unit: '',
+    rows: [
+      {label: 'Rated kinds', parts: [
+        {label: 'Great 7', value: 7, layer: 'key', ex: 'tier.great'},
+        {label: 'Good 18', value: 18, layer: 'alt', ex: 'tier.good'},
+        {label: 'Meh 14', value: 14, ex: 'tier.meh'},
+        {label: 'Poor 3', value: 3, layer: 'off', ex: 'tier.poor'}]},
+      {label: 'charts.js', parts: [
+        {label: 'Great 3', value: 3, layer: 'key', ex: 'cov.great'},
+        {label: 'Good 4', value: 4, layer: 'alt', ex: 'cov.good'}]}
+    ]
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Tier', 'Rated kinds', 'Share of 42', 'Drawn from data'],
+    rows: [
+      {cells: ['Great', '7', '17 percent', '3'], ex: 'tier.great'},
+      {cells: ['Good', '18', '43 percent', '4'], ex: 'tier.good'},
+      {cells: ['Meh', '14', '33 percent', '0'], ex: 'tier.meh'},
+      {cells: ['Poor', '3', '7 percent', '0'], ex: 'tier.poor'}
+    ]
+  }); }}
+]});
 
-ExCharts.connection(document.getElementById('fig-theme'), {
-  label: 'How the theme is chosen', cols: ['Source', 'Engine', 'Page'], boxW: 190, gapX: 120,
-  nodes: [
-    {id: 'pick', col: 0, row: 0, title: 'Viewer\'s pick', sub: 'this view', ex: 't.pick'},
-    {id: 'def', col: 0, row: 1, title: 'Saved default', sub: 'Set as default', ex: 't.default'},
-    {id: 'page', col: 0, row: 2, title: 'Page theme', sub: 'author choice', ex: 't.page'},
-    {id: 'fb', col: 0, row: 3, title: 'Arc Forge', sub: 'fallback', layer: 'off', ex: 't.fb'},
-    {id: 'engine', col: 1, row: 1, title: 'Theme engine', sub: 'in the runtime', layer: 'key', ex: 't.engine'},
-    {id: 'reg', col: 1, row: 3, title: 'themes.js', sub: '4 token sets', layer: 'alt', ex: 't.reg'},
-    {id: 'out', col: 2, row: 1, title: 'Page tokens', sub: 'named values', ex: 't.out'}
-  ],
-  edges: [
-    {from: 'pick', to: 'engine', label: 'first'},
-    {from: 'def', to: 'engine', label: 'second'},
-    {from: 'page', to: 'engine', label: 'third'},
-    {from: 'fb', to: 'engine', label: 'fourth', layer: 'off'},
-    {from: 'reg', to: 'engine', label: 'values'},
-    {from: 'engine', to: 'out', label: 'one theme', layer: 'key'}
-  ]
-});
-ExCharts.table(document.getElementById('fig-theme-table'), {
-  cols: ['Order', 'Source', 'Wins when', 'Kept'],
-  rows: [
-    {cells: ['1', 'Viewer\'s pick', 'The viewer chose it for this view', 'Until the tab closes'], ex: 't.pick'},
-    {cells: ['2', 'Saved default', 'This view has no pick', 'In the browser'], ex: 't.default'},
-    {cells: ['3', 'Page theme', 'The viewer has no choice yet', 'In the page'], ex: 't.page'},
-    {cells: ['4', 'Arc Forge', 'Nothing else is set', 'In the token file'], ex: 't.fb'}
-  ]
-});
+ExCharts.views(document.getElementById('fig-theme'), {label: 'Theme sources', views: [
+  {id: 'figure', label: 'Diagram', draw: function (b) { ExCharts.connection(b, {
+    label: 'How the theme is chosen', cols: ['Source', 'Engine', 'Page'], boxW: 190, gapX: 120,
+    nodes: [
+      {id: 'pick', col: 0, row: 0, title: 'Viewer\'s pick', sub: 'this view', ex: 't.pick'},
+      {id: 'def', col: 0, row: 1, title: 'Saved default', sub: 'Set as default', ex: 't.default'},
+      {id: 'page', col: 0, row: 2, title: 'Page theme', sub: 'author choice', ex: 't.page'},
+      {id: 'fb', col: 0, row: 3, title: 'Arc Forge', sub: 'fallback', layer: 'off', ex: 't.fb'},
+      {id: 'engine', col: 1, row: 1, title: 'Theme engine', sub: 'in the runtime', layer: 'key', ex: 't.engine'},
+      {id: 'reg', col: 1, row: 3, title: 'themes.js', sub: '4 token sets', layer: 'alt', ex: 't.reg'},
+      {id: 'out', col: 2, row: 1, title: 'Page tokens', sub: 'named values', ex: 't.out'}
+    ],
+    edges: [
+      {from: 'pick', to: 'engine', label: 'first'},
+      {from: 'def', to: 'engine', label: 'second'},
+      {from: 'page', to: 'engine', label: 'third'},
+      {from: 'fb', to: 'engine', label: 'fourth', layer: 'off'},
+      {from: 'reg', to: 'engine', label: 'values'},
+      {from: 'engine', to: 'out', label: 'one theme', layer: 'key'}
+    ]
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Order', 'Source', 'Wins when', 'Kept'],
+    rows: [
+      {cells: ['1', 'Viewer\'s pick', 'The viewer chose it for this view', 'Until the tab closes'], ex: 't.pick'},
+      {cells: ['2', 'Saved default', 'This view has no pick', 'In the browser'], ex: 't.default'},
+      {cells: ['3', 'Page theme', 'The viewer has no choice yet', 'In the page'], ex: 't.page'},
+      {cells: ['4', 'Arc Forge', 'Nothing else is set', 'In the token file'], ex: 't.fb'}
+    ]
+  }); }}
+]});
 
 ExCharts.data(document.getElementById('fig-views'), {
   label: 'Tokens in the contract', layer: 'Token group', total: 'Contract', cols: ['Group', 'Tokens', 'Share'],
@@ -563,6 +583,41 @@ ExCharts.data(document.getElementById('fig-views'), {
     {label: 'Chart series', value: 5, ex: 'tok.series'},
     {label: 'Shape and type', value: 7, ex: 'tok.shape'},
     {label: 'Shadows', value: 2, ex: 'tok.shadows'}
+  ]
+});
+
+ExCharts.timeline(document.getElementById('fig-history'), {
+  label: 'Kit history', start: '2026-10-01', end: '2026-10-31',
+  events: [
+    {at: '2026-10-19', title: 'Chart Lab', sub: '42 kinds rated', ex: {t: 'Chart Lab', l: '19 OCT', d: 'Chart Lab is one page that draws 42 chart kinds on the same subject.', x: ['Each kind has a rating: great, good, meh or poor.']}},
+    {at: '2026-10-20', title: 'Kit in repo', sub: 'renderers and check', ex: {t: 'Kit in repo', l: '20 OCT', d: 'The kit moved into this repo as files any agent can read.', x: ['charts.js had seven renderers.']}},
+    {at: '2026-10-26', title: 'Timeline and tree', sub: 'tables limited', layer: 'key', ex: {t: 'Timeline and tree', l: '26 OCT', d: 'This change adds the timeline, tree and tabs renderers.', x: ['The check fails a page with more than one table shown.']}}
+  ],
+  spans: [{from: '2026-10-20', to: '2026-10-26', title: 'Tables fill the gaps', layer: 'off', ex: {t: 'Tables fill the gaps', l: 'SPAN', d: 'In this time, pages used a table where the kit had no renderer.', x: ['Dates, causes and options became rows.']}}]
+});
+
+ExCharts.tree(document.getElementById('fig-causes'), {
+  label: 'Causes of table-heavy pages', cols: ['RESULT', 'CAUSE', 'DETAIL'],
+  root: {title: 'Pages full of tables', sub: 'the result', layer: 'key', ex: {t: 'Pages full of tables', l: 'RESULT', d: 'A page full of tables shows rows where a diagram shows how things connect.', x: ['Readers must read every cell.']},
+    children: [
+      {title: 'No renderer', sub: 'for dates or causes', edge: 'kit', ex: {t: 'No renderer', l: 'CAUSE', d: 'The kit had no timeline or tree renderer.', x: ['A table took one call.']},
+        children: [{title: 'Hand-drawn SVG', sub: 'slow, so skipped', layer: 'off', ex: {t: 'Hand-drawn SVG', l: 'DETAIL', d: 'A hand-drawn SVG is a chart with no renderer.', x: ['Chart Lab holds one for each kind.']}}]},
+      {title: 'Rule allows tables', sub: '"to compare values"', edge: 'rules', ex: {t: 'Rule allows tables', l: 'CAUSE', d: 'The page rules named a table for any comparison of values.', x: ['Most subjects can be read as a comparison.']}},
+      {title: 'Check passes tables', sub: 'no limit', edge: 'check', ex: {t: 'Check passes tables', l: 'CAUSE', d: 'The headless check did not count tables.', x: ['A page with only tables passed.']}}
+    ]}
+});
+
+ExCharts.tabs(document.getElementById('fig-tabs'), {
+  label: 'Options',
+  tabs: [
+    {id: 'a', label: 'Option A', draw: function (b) { ExCharts.connection(b, {label: 'Option A', nodes: [
+      {id: 'u', col: 0, row: 0, title: 'Reader', ex: {t: 'Reader', l: 'OPTION A', d: 'The reader is the person who opens the page.', x: []}},
+      {id: 'p', col: 1, row: 0, title: 'One page', sub: 'all options', layer: 'key', ex: {t: 'One page', l: 'OPTION A', d: 'One page holds every option.', x: ['Tabs switch the figure.']}}],
+      edges: [{from: 'u', to: 'p', label: 'opens'}]}); }},
+    {id: 'b', label: 'Option B', draw: function (b) { ExCharts.connection(b, {label: 'Option B', nodes: [
+      {id: 'u', col: 0, row: 0, title: 'Reader', ex: {t: 'Reader', l: 'OPTION B', d: 'The reader is the person who opens the page.', x: []}},
+      {id: 'p', col: 1, row: 0, title: 'Two pages', sub: 'one per option', layer: 'alt', ex: {t: 'Two pages', l: 'OPTION B', d: 'Each option has its own page.', x: ['The pages link to each other.']}}],
+      edges: [{from: 'u', to: 'p', label: 'opens'}]}); }}
   ]
 });
 </script>

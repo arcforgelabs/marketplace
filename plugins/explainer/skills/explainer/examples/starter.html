@@ -19,9 +19,8 @@
 </section>
 
 <section class="ex-section" id="parts">
-  <div class="ex-head"><span class="ex-n">01</span><h2>Reader, page, and fact store</h2><p>The diagram shows how the three parts connect. The table compares the same parts.</p></div>
-  <div class="ex-figure" id="fig-parts"></div>
-  <div class="ex-figure" id="fig-compare"></div>
+  <div class="ex-head"><span class="ex-n">01</span><h2>Reader, page, and fact store</h2><p>The diagram shows how the three parts connect. The switch shows the same parts as a table.</p></div>
+  <div id="fig-parts"></div>
   <details class="ex-facts" data-def="A page read is a reader opening a page that loads facts from a store."></details>
 </section>
 </div>
@@ -76,28 +75,30 @@ window.EX = {
     "The runtime in kit/explainer.js performs the read."
   ]}
 };
-ExCharts.connection(document.getElementById('fig-parts'), {
-  label: 'Reader, page, and fact store', cols: ['Reader', 'Page'],
-  nodes: [
-    {id: 'reader', col: 0, row: 0, title: 'Reader', sub: 'opens the page', ex: 'reader'},
-    {id: 'page', col: 1, row: 0, title: 'Page', sub: 'shows the subject', layer: 'key', ex: 'page'},
-    {id: 'store', col: 1, row: 1, title: 'Fact store', sub: 'holds the facts', ex: 'store'}
-  ],
-  edges: [
-    {from: 'reader', to: 'page', label: 'open', ex: 'e.open'},
-    {from: 'page', to: 'store', label: 'read', ex: 'e.read'}
-  ]
-});
-ExCharts.table(document.getElementById('fig-compare'), {
-  cols: ['Part', 'Job', 'Connects to', 'Stops when'],
-  rows: [
-    {cells: ['Reader', 'Opens the page', 'The page', 'The page does not load'], ex: 'reader'},
-    {cells: ['Page', 'Shows one subject', 'Reader and fact store', 'A part has no entry'], ex: 'page'},
-    {cells: ['Fact store', 'Holds the facts', 'The page', 'A key is missing'], ex: 'store'},
-    {cells: ['Open', 'Carries attention', 'Reader to page', 'The address is wrong'], ex: 'e.open'},
-    {cells: ['Read', 'Loads one entry', 'Page to fact store', 'The key is missing'], ex: 'e.read'}
-  ]
-});
+ExCharts.views(document.getElementById('fig-parts'), {label: 'Parts', views: [
+  {id: 'figure', label: 'Diagram', draw: function (b) { ExCharts.connection(b, {
+    label: 'Reader, page, and fact store', cols: ['Reader', 'Page'],
+    nodes: [
+      {id: 'reader', col: 0, row: 0, title: 'Reader', sub: 'opens the page', ex: 'reader'},
+      {id: 'page', col: 1, row: 0, title: 'Page', sub: 'shows the subject', layer: 'key', ex: 'page'},
+      {id: 'store', col: 1, row: 1, title: 'Fact store', sub: 'holds the facts', ex: 'store'}
+    ],
+    edges: [
+      {from: 'reader', to: 'page', label: 'open', ex: 'e.open'},
+      {from: 'page', to: 'store', label: 'read', ex: 'e.read'}
+    ]
+  }); }},
+  {id: 'table', label: 'Table', draw: function (b) { ExCharts.table(b, {
+    cols: ['Part', 'Job', 'Connects to', 'Stops when'],
+    rows: [
+      {cells: ['Reader', 'Opens the page', 'The page', 'The page does not load'], ex: 'reader'},
+      {cells: ['Page', 'Shows one subject', 'Reader and fact store', 'A part has no entry'], ex: 'page'},
+      {cells: ['Fact store', 'Holds the facts', 'The page', 'A key is missing'], ex: 'store'},
+      {cells: ['Open', 'Carries attention', 'Reader to page', 'The address is wrong'], ex: 'e.open'},
+      {cells: ['Read', 'Loads one entry', 'Page to fact store', 'The key is missing'], ex: 'e.read'}
+    ]
+  }); }}
+]});
 </script>
 <script src="../kit/explainer.js"></script>
 </body>

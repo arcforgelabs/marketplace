@@ -1,6 +1,6 @@
 # Explainer pattern
 
-> Public copy of the Arc Forge explainer pattern, with the 25 October 2026 view, depth, full-word, and picture rules. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
+> Public copy of the Arc Forge explainer pattern, 2026-10-20, with the 25 and 26 October 2026 view, depth, full-word, picture and table rules. In this folder the kit is `kit/` and the starter is `examples/starter.html`.
 
 An explainer is a page or inline widget that explains a system, a plan or a comparison with visuals first. Use one whenever someone asks to explain something, for more detail, how something works, or to compare things. Marketing pages follow the rest of this book; explainers follow this section.
 
@@ -15,11 +15,19 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 
 ## Choose the views (critical)
 
-- Pick the best primary view for the subject. Then add at least one alternative view of the same subject from a different family.
-- The families are structure, time, amount, hierarchy, and comparison.
-- A connection diagram is a structure view: parts as boxes, joined by labelled arrows. Use it when connections are the best way to show the subject.
-- The alternative can be a timeline, a state machine, a container diagram, a Sankey, a heatmap, a tree, or a table. The view switch or a second figure can carry it.
-- When the primary view is a connection diagram, each arrow names what moves along it. A box with no arrow is a sign of a missing connection.
+- Default to a **ConnectionDiagram**: parts as boxes, joined by labelled arrows. Most explainers show how pieces fit together, and only connections show that.
+- Each arrow names what moves along it. A box with no arrow is a sign of a missing connection.
+- Use another kind when the subject needs it. Pick by the question the section answers:
+  - How do the parts fit together? A ConnectionDiagram or a container diagram.
+  - What happened, and when? A timeline (`ExCharts.timeline`). Never a table of dates.
+  - Why did it happen, or what is it made of? A tree (`ExCharts.tree`): the result, then its causes or parts.
+  - How does one thing change state? A state machine.
+  - How much, against a limit or against each other? Capacity bars, bars, a heatmap or a sankey.
+  - Which option, customer or host? Tabs (`ExCharts.tabs`): one figure per item, and the reader switches.
+  - What is known and what is not? One diagram with the known parts solid and the unknown parts dashed.
+- **Vary the kinds**: two sections in a row that answer different questions use different kinds. A page that uses one kind for every section is a sign that the kind was not picked.
+- Pick the best primary view for the subject. Then add at least one alternative view of the same subject from a different family, in a view switch, tabs or a second figure.
+- The families are structure, time, amount, hierarchy, and comparison. A table can be an alternative view, never the primary one.
 - **Build up from the problem** for a design or a technique: figure 1 shows the problem at its simplest. Each next figure changes one thing, names the change, and shows what it fixes or what still fails. Later figures can combine fixes. Simple figures, many steps. Reference: https://samwho.dev/load-balancing/.
 - **Open with a promise, then keep it**: the opening visual shows real data about the exact subject and the question the page answers, so readers know fast if the page is for them. No bait: it should not catch everyone, and the page must deliver what it promises. Reference: https://ngrok.com/blog/prompt-caching.
 - **Pretty, with substance**: care in the look is care for the reader. Decoration with no content is not allowed.
@@ -86,11 +94,16 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 - A page names its theme in `<meta name="ex-theme">`. Arc Forge is the fallback, not a fixed look: "red" above means `accent` in the active theme.
 - One theme button per page, fixed in the bottom-right corner. Never a theme switcher per component.
 - The viewer's pick, then the viewer's saved default, then the page theme, then Arc Forge.
-- A data block may have one view switch: chart, table or diagram of the same rows. Use the switch, or a second figure, when the second view is another family.
+- A data block may have one view switch: chart, table or diagram of the same rows. The first view is never the table. Use the switch, or a second figure, when the second view is another family.
 
-## Tables
+## Tables are the last resort (critical)
 
-- CrispTable: fixed layout, every row 44px, no wrap, ellipsis. Status columns (76px) sit next to the name. The last column holds one sentence and a `More · N` pill.
+- A table shows values. It does not show how things connect, change or cause each other. Most subjects need that, so most pages need no table.
+- Use a table only when the reader must look up exact values across three or more columns. Then it sits behind a view switch, after a chart or a diagram of the same rows.
+- At most one table shows when a page loads. No section opens on a table. `scripts/check` fails both.
+- A table is not a place for sentences. A fact that needs a sentence goes in a pop-up on a diagram part, not in a table cell.
+- "Switch, do not stack": several items of the same kind (customers, hosts, options, before and after) go in tabs with one figure each, not in one table with a row each.
+- CrispTable: fixed layout, every row 44px, no wrap, ellipsis. Status columns (76px) sit next to the name. The last column holds a short value and a `More · N` pill.
 
 ## Navigation
 
@@ -103,7 +116,10 @@ Reference page: `references/chart-lab.html`. Start a new page from `examples/sta
 
 ## Before you publish
 
+- The main diagram shows connections, unless the subject is a list or a set of values.
 - Each main concept has a primary view and at least one alternative view of the same subject from a different family.
+- Each section's visual answers its question (Choose the diagram); the kinds vary across the page.
+- At most one table shows at load, and no section opens on one.
 - Every item opens a pop-up with a definition first, then about 4 to 8 substantive facts on each main item.
 - Every fact sits in an item; the FactsList leads to each one.
 - No open text longer than one sentence.
