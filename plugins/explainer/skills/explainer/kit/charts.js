@@ -252,6 +252,91 @@
     return views(el, { label: o.label, start: o.start, views: (o.views || ['chart', 'table', 'diagram']).map(function (id) { return all[id]; }) });
   }
 
+  /* Timeline: events and spans on a real time scale. Rated good. Use it for dated changes, not a table of dates.
+     {events: [{at: "2026-05-17", title, sub, layer, ex}], spans: [{from, to, title, layer, ex}], start, end} */
+  function timeline(el, o) {
+    var W = o.width || 760, pad = 24, bw = o.boxW || 150, bh = o.boxH || 50, gy = 12, body = '', hots = '';
+    var ev = (o.events || []).map(function (e) { return { e: e, t: Date.parse(e.at) }; }).sort(function (a, b) { return a.t - b.t; });
+    var sp = (o.spans || []).map(function (s) { return { s: s, a: Date.parse(s.from), b: Date.parse(s.to || o.end || new Date().toISOString().slice(0, 10)) }; });
+    var all = [].concat(ev.map(function (x) { return x.t; }), [].concat.apply([], sp.map(function (x) { return [x.a, x.b]; })));
+    if (o.start) all.push(Date.parse(o.start)); if (o.end) all.push(Date.parse(o.end));
+    if (all.some(isNaN)) throw new Error('timeline: a date does not parse (use YYYY-MM-DD)');
+    var t0 = Math.min.apply(null, all), t1 = Math.max.apply(null, all); if (t1 === t0) t1 = t0 + 864e5;
+    var x0 = pad + bw / 2, x1 = W - pad - bw / 2, X = function (t) { return x0 + (x1 - x0) * (t - t0) / (t1 - t0); };
+    // Events alternate above and below the axis; a box moves out one level while it would cover the last box on that side.
+    var lanes = { up: [], dn: [] };
+    ev.forEach(function (x, i) {
+      var side = i % 2 ? 'dn' : 'up', cx = X(x.t), lv = 0;
+      while (lanes[side][lv] != null && lanes[side][lv] > cx - bw / 2 - 8) lv++;
+      lanes[side][lv] = cx + bw / 2; x.side = side; x.lv = lv; x.cx = cx;
+    });
+    var up = lanes.up.length, dn = lanes.dn.length, axis = 30 + up * (bh + gy) + 14, spanTop = axis + 34 + dn * (bh + gy);
+    var H = spanTop + sp.length * 34 + 16;
+    // Ticks: weeks for a range up to 10 weeks, months up to 18 months, else years.
+    var d = new Date(t0), span = t1 - t0, mode = span <= 70 * 864e5 ? 'week' : span <= 18 * 2.63e9 ? 'month' : 'year';
+    var MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], shown = 0;
+    function next(t) {
+      return mode === 'week' ? new Date(t.getTime() + 7 * 864e5) : mode === 'month' ? new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() + 1, 1)) : new Date(Date.UTC(t.getUTCFullYear() + 1, 0, 1));
+    }
+    var tick = mode === 'week' ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())) : next(new Date(Date.UTC(d.getUTCFullYear(), mode === 'month' ? d.getUTCMonth() : 0, 1)));
+    body += '<path class="ex-line" d="M' + (x0 - 12) + ' ' + axis + ' H' + (x1 + 12) + '"/>';
+    while (tick.getTime() <= t1 && shown < 40) {
+      var tx = X(tick.getTime()), lab = mode === 'week' ? tick.getUTCDate() + ' ' + MON[tick.getUTCMonth()] : mode === 'month' ? MON[tick.getUTCMonth()] + (tick.getUTCMonth() === 0 ? ' ' + tick.getUTCFullYear() : '') : String(tick.getUTCFullYear());
+      body += '<path class="ex-line" d="M' + tx + ' ' + (axis - 4) + ' V' + (axis + 4) + '"/><text class="ex-tm" x="' + tx + '" y="' + (axis + 18) + '" text-anchor="middle">' + lab + '</text>';
+      tick = next(tick); shown++;
+    }
+    ev.forEach(function (x) {
+      var e = x.e, by = x.side === 'up' ? axis - 14 - (x.lv + 1) * (bh + gy) + gy : axis + 28 + x.lv * (bh + gy);
+      var bx = Math.max(pad, Math.min(W - pad - bw, x.cx - bw / 2)), sy = x.side === 'up' ? by + bh : by;
+      body += '<path class="' + mod('ex-line', e.layer === 'key' ? 'key' : e.layer === 'off' ? 'off' : '') + '" d="M' + x.cx + ' ' + axis + ' V' + sy + '"/>';
+      body += '<circle class="' + (e.layer === 'key' ? 'ex-head-fill ex-head-fill--key' : 'ex-head-fill') + '" cx="' + x.cx + '" cy="' + axis + '" r="5"/>';
+      body += '<rect class="' + mod('ex-box', e.layer) + '" x="' + bx + '" y="' + by + '" width="' + bw + '" height="' + bh + '" rx="10"/>' + boxText(bx - 4, by, bw, bh, e.title, e.sub || e.at);
+      hots += hot(key(e.ex || { t: e.title, l: e.at, d: e.title + ' happened on ' + e.at + '.', x: [] }, 'event'), bx, by, bw, bh);
+    });
+    sp.forEach(function (x, i) {
+      var s = x.s, y = spanTop + i * 34, a = X(x.a), b = Math.max(X(x.b), a + 6);
+      body += '<rect class="' + mod('ex-box', s.layer || 'alt') + '" x="' + a + '" y="' + y + '" width="' + (b - a) + '" height="24" rx="6"/>';
+      var inside = (b - a) > s.title.length * 7 + 16;
+      body += '<text class="ex-ts" x="' + (inside ? a + 8 : b + 8) + '" y="' + (y + 16) + '">' + esc(s.title) + '</text>';
+      hots += hot(key(s.ex || { t: s.title, l: 'SPAN', d: s.title + ' lasted from ' + s.from + ' to ' + (s.to || 'now') + '.', x: [] }, 'span'), a, y, Math.max(b - a, 40), 24, 6);
+    });
+    return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
+  }
+
+  /* Tree: parent and child parts, left to right. Rated good. Use it for causes, ownership or a breakdown.
+     {root: {title, sub, layer, ex, edge, children: [..]}, boxW, boxH, cols: ["CAUSE", ..]} */
+  function tree(el, o) {
+    var hasEdge = JSON.stringify(o.root).indexOf('"edge"') > -1;
+    var bw = o.boxW || 200, bh = o.boxH || 54, gx = o.gapX || (hasEdge ? 120 : 64), gy = o.gapY || 14, pad = 20, top = o.cols ? 40 : 16, body = '', hots = '', leaf = 0, depthMax = 0;
+    function place(n, dep) {
+      depthMax = Math.max(depthMax, dep); n.x = pad + dep * (bw + gx);
+      if (n.children && n.children.length) { n.children.forEach(function (c) { place(c, dep + 1); }); n.y = (n.children[0].y + n.children[n.children.length - 1].y) / 2; }
+      else n.y = top + (leaf++) * (bh + gy);
+    }
+    place(o.root, 0);
+    var W = pad * 2 + (depthMax + 1) * bw + depthMax * gx, H = top + leaf * (bh + gy) - gy + 20;
+    (o.cols || []).forEach(function (c, i) { body += '<text class="ex-tm" x="' + (pad + i * (bw + gx)) + '" y="24">' + esc(c) + '</text>'; });
+    (function draw(n) {
+      (n.children || []).forEach(function (c) {
+        var x1 = n.x + bw, y1 = n.y + bh / 2, x2 = c.x, y2 = c.y + bh / 2, mx = x1 + (hasEdge ? 24 : gx / 2);
+        body += '<path class="' + mod('ex-line', c.layer === 'key' ? 'key' : c.layer === 'off' ? 'off' : '') + '" d="M' + x1 + ' ' + y1 + ' H' + mx + ' V' + y2 + ' H' + x2 + '"/>';
+        if (c.edge) body += '<text class="ex-tl" x="' + (mx + 6) + '" y="' + (y2 - 6) + '">' + esc(c.edge) + '</text>';
+        draw(c);
+      });
+      body += '<rect class="' + mod('ex-box', n.layer) + '" x="' + n.x + '" y="' + n.y + '" width="' + bw + '" height="' + bh + '" rx="10"/>' + boxText(n.x, n.y, bw, bh, n.title, n.sub);
+      hots += hot(key(n.ex, 'node'), n.x, n.y, bw, bh);
+    })(o.root);
+    return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
+  }
+
+  /* Tabs: one figure per item (a customer, an option, a before and after). The reader switches; the page does not stack them.
+     {label, tabs: [{id, label, draw: function (el) {..}}], start} */
+  function tabs(el, o) {
+    var r = views(el, { label: o.label, start: o.start, views: o.tabs });
+    el.classList.add('ex-tabs');
+    return r;
+  }
+
   /* ---- Keep each chart with its data, so a theme change can draw it again with the same keys. ---- */
   var count = 0;
   function run(el, kind, o) {
@@ -267,7 +352,7 @@
     drawn.forEach(function (d) { if (d.el.isConnected) run(d.el, d.kind, d.o); });
     document.dispatchEvent(new CustomEvent('ex:drawn', { detail: { el: null } }));
   }
-  var api = { connection: connection, container: container, capacity: capacity, heatmap: heatmap, sankey: sankey, bars: bars, table: table, views: views, data: data };
+  var api = { connection: connection, container: container, capacity: capacity, heatmap: heatmap, sankey: sankey, bars: bars, timeline: timeline, tree: tree, tabs: tabs, table: table, views: views, data: data };
   var pub = { redraw: redraw, rgba: rgba, contrast: contrast };
   Object.keys(api).forEach(function (kind) {
     pub[kind] = function (el, o) {
