@@ -126,7 +126,8 @@
       side.hidden = !sel.length; stage.classList.toggle('ex-canvas-selmode', tool === 'select');
       c.querySelector('.ex-canvas-n').textContent = sel.length + ' selected';
       var EX = window.EX || {};
-      list.innerHTML = sel.map(function (el) { var key = el.getAttribute('data-ex'), d = EX[key]; return '<button type="button" class="ex-cellbtn" data-ex="' + key + '">' + (d ? d.t : key) + '</button>'; }).join('');
+      list.textContent = '';
+      sel.forEach(function (el) { var key = el.getAttribute('data-ex'), d = EX[key], b = document.createElement('button'); b.type = 'button'; b.className = 'ex-cellbtn'; b.setAttribute('data-ex', key); b.textContent = d ? d.t : key; list.appendChild(b); });
     }
     function toggle(el, add) { var i = sel.indexOf(el); if (!add) sel = i >= 0 && sel.length === 1 ? [] : [el]; else if (i >= 0) sel.splice(i, 1); else sel.push(el); drawMarks(); }
     function setTool(t) { tool = t; c.querySelectorAll('[data-tool]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.tool === t)); }); drawMarks(); }
