@@ -13,7 +13,7 @@ Source: Chart Lab, `references/chart-lab.html` (ratings of 2026-10-19). The page
 | Container diagram | Boxes and arrows | `container` | Zones that hold parts. Better than a layer stack. |
 | Live anatomy | Boxes and arrows | — | Lines of code next to their effect on a chart. Highest potential for teaching. Make the controls strong. |
 | Sketch style | Boxes and arrows | — | A rough-pen filter over a normal diagram. A style, not a kind: use it on a diagram that is a quick idea. |
-| Heatmap | Amounts | `heatmap` | A value for each row and column pair. |
+| Heatmap | Amounts | `heatmap` | A value for each row and column pair. Columns keep a fixed width. Column titles never overlap: `headers: 'auto'` (default) sets them flat when they fit, on two lines when that fits, else at an angle of 40 degrees. Set `'flat'`, `'wrap'` or `'angle'` to force one. |
 | Sankey | Amounts | `sankey` | Flows as bands; band width is the amount. |
 | Parallel sets | Amounts | — | One group split by several categories in turn. |
 | GPU graph | Networks | — | Thousands of linked parts (cosmos.gl). For real, large graphs only. |

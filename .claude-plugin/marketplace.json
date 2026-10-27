@@ -46,7 +46,7 @@
       "name": "explainer",
       "source": "./plugins/explainer",
       "description": "Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme kit and a format guide for replies.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "author": {
         "name": "Arc Forge Labs"
       },
