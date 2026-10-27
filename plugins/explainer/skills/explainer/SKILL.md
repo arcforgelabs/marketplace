@@ -33,6 +33,7 @@ All paths are relative to this skill folder.
 | `kit/explainer.css` | The `.ex-` styles. Tokens only. |
 | `kit/charts.js` | Data-driven vector-graphic renderers: `connection`, `container`, `capacity`, `heatmap`, `sankey`, `bars`, `timeline`, `tree`, `table`, the view switch `views` and `data`, and `tabs` (one figure per item). |
 | `kit/draw.js` | `ExDraw`: parts for hand-drawn figures: 32 line icons, icon discs, logo plates, arrows, moving dots, stamps, leader lines and blast rings. |
+| `kit/canvas.js` | `ExCanvas`: an Expand button on every figure that holds a vector graphic. It opens the figure on a canvas that fills the window: a hand tool (drag, wheel and pinch zoom), a select tool (click, shift-click, box select; selected parts listed, each opens its pop-up), zoom buttons with Fit, and Esc to close. |
 | `kit/explainer.js` | The runtime: pop-ups, Facts lists, tick rail, and `themeEngine` (the theme button). |
 | `examples/starter.html` | Copy this to start a page. |
 | `examples/explainer-kit.html` | A full page that uses every renderer. |
@@ -52,11 +53,11 @@ An explainer page is one reply format. Read `references/formats/README.md` and u
 ## Make a page
 
 1. Read `references/pattern.md` and `references/creative.md`. Name the subject's own shape (three candidates, pick one) and draw the hero as that shape with `kit/draw.js`, never as a kit box diagram. Then pick one visual per section by the question it answers (pattern.md, "Choose the diagram"), from `references/charts.md`: great or good only. After the hero, the default is a connection diagram with icons or logos on its parts. Dates take a timeline, causes a tree, items of the same kind take tabs. A table is the last resort: at most one shows at load, never first in a section. For each main concept, pick the best primary view, then add at least one alternative view of the same subject from a different family (structure, time, amount, hierarchy, or comparison). The view switch, tabs or a second figure can carry it. A table can be an alternative view only, never the primary one.
-2. Copy `examples/starter.html` next to the other examples (or copy `kit/` next to your page and fix the six paths).
+2. Copy `examples/starter.html` next to the other examples (or copy `kit/` next to your page and fix the seven paths).
 3. Pick the theme (below) and set it in `<meta name="ex-theme" content="<id>">`.
 4. Write one `.ex-section` per subject. Each opens with an ExplainerHead whose first sentence defines the subject.
 5. Put every part in `window.EX` as `{"t": title, "l": layer, "d": definition, "x": [facts]}`. The definition says what the part is. Facts never repeat it. Give each main item about 4 to 8 substantive facts: why it exists, how it works, how it connects to its neighbours, real numbers, limits and failure modes, and a source or a link where one exists.
-6. Draw the hand-drawn figures with `ExDraw` and each rated chart with `ExCharts.<kind>(element, data)`. Draw at least half of the sections by hand. Load `kit/themes.js`, `kit/charts.js` and `kit/draw.js`, and draw every figure, before `kit/explainer.js`. When a subject needs two families, use a second figure or `ExCharts.views`. For one set of rows, `ExCharts.data(element, {label, unit, rows})` switches among a bar chart, a table, and a share diagram.
+6. Draw the hand-drawn figures with `ExDraw` and each rated chart with `ExCharts.<kind>(element, data)`. Draw at least half of the sections by hand. Load `kit/themes.js`, `kit/charts.js`, `kit/draw.js` and `kit/canvas.js`, and draw every figure, before `kit/explainer.js`. A figure that should not open on the canvas gets `data-canvas="off"`; a figure outside an `.ex-figure` gets `data-canvas` to opt in. When a subject needs two families, use a second figure or `ExCharts.views`. For one set of rows, `ExCharts.data(element, {label, unit, rows})` switches among a bar chart, a table, and a share diagram.
 7. End a section with `<details class="ex-facts" data-def="…">` when a reader will want to scan the facts.
 8. Answer the creative check in `references/creative.md`. Fix each miss now, not in a later round. Then run `scripts/check <page.html>`. Fix every failure. Set `CHROMIUM_PATH` to use a browser that is already installed.
 9. Look at the screenshots (`--shots <dir>`). Read the page as a reader would: the hero is a picture of the subject, named products show their logos, things show icons, one flow moves, at least four patterns, no open text longer than one sentence, every fact has a part, red on one or two things only, and no section that reads as a spreadsheet. Each main concept has two views from different families. Each main pop-up has about 4 to 8 facts. Full words only. The problem is a drawn figure. Unknowns are question marks or dashed lines. A story strip is stamped HYPOTHETICAL. A proposed after view is stamped PROPOSAL, NOT APPROVED.
@@ -81,6 +82,7 @@ An explainer page is one reply format. Read `references/formats/README.md` and u
 - Every colour, font, radius and chart series reads a variable from `kit/tokens.css`. Never write a hex, `rgb()`, `oklch()` or a colour name in a page or in chart code. `scripts/check` fails on one.
 - Data series use `--series-1` to `--series-5`. Diagram boxes that carry a meaning use the diagram colour key (`--key-*`). Never mix the two.
 - Never add a theme switcher to a component. The page has one theme button; the runtime adds it.
+- Never add a zoom or full-screen control to a figure. `kit/canvas.js` gives every figure the same Expand button and canvas.
 
 ## Pick the theme
 
