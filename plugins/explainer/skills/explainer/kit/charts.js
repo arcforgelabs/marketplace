@@ -119,11 +119,49 @@
 
   /* Heatmap: a value for each row and column pair. Rated great.
      {rows: [..], cols: [..], values: [[..]], fmt: v => text, cellEx: (row, col, v) => {t,l,d,x}} */
+  /* Column headers for fixed-width columns. headers: 'auto' (default), 'flat', 'wrap' or 'angle'.
+     auto: flat when every title fits its column, two wrapped lines when that fits, else angled.
+     Angled titles rise left to right at 40 degrees from the column centre, with a short guide line,
+     the usual form for a matrix with fixed columns. Returns {svg, top, right}: header height and the
+     extra width the last angled title needs. Widths are estimated for .ex-tm (11px mono, uppercase). */
+  function colHeads(cols, x0, cw, mode) {
+    var cpx = 7.7, room = cw - 10, out = '', top = 40, right = 0, A = 40 * Math.PI / 180;
+    function fits(s) { return String(s).length * cpx <= room; }
+    function wrap(s) {
+      var lines = [''];
+      String(s).split(' ').forEach(function (w) { var cur = lines[lines.length - 1], next = cur ? cur + ' ' + w : w; if (!cur || fits(next)) lines[lines.length - 1] = next; else lines.push(w); });
+      return lines;
+    }
+    mode = mode || 'auto';
+    if (mode === 'auto') mode = cols.every(fits) ? 'flat' : cols.every(function (c) { var l = wrap(c); return l.length <= 2 && l.every(fits); }) ? 'wrap' : 'angle';
+    if (mode === 'flat') {
+      cols.forEach(function (c, j) { out += '<text class="ex-tm" x="' + (x0 + j * cw + cw / 2) + '" y="26" text-anchor="middle">' + esc(c) + '</text>'; });
+    } else if (mode === 'wrap') {
+      top = 56;
+      cols.forEach(function (c, j) {
+        var l = wrap(c), cx = x0 + j * cw + cw / 2, y = top - 14 - (l.length - 1) * 15;
+        l.forEach(function (line, k) { out += '<text class="ex-tm" x="' + cx + '" y="' + (y + k * 15) + '" text-anchor="middle">' + esc(line) + '</text>'; });
+      });
+    } else {
+      var maxLen = Math.max.apply(null, cols.map(function (c) { return String(c).length * cpx; }));
+      top = Math.ceil(maxLen * Math.sin(A)) + 30;
+      cols.forEach(function (c, j) {
+        var cx = x0 + j * cw + cw / 2, by = top - 10, len = String(c).length * cpx;
+        out += '<path d="M' + cx + ' ' + (top - 2) + 'V' + (by + 2) + '" style="stroke:var(--border);stroke-width:1"/>';
+        out += '<text class="ex-tm" x="' + (cx + 2) + '" y="' + by + '" transform="rotate(-40 ' + cx + ' ' + by + ')">' + esc(c) + '</text>';
+        right = Math.max(right, cx + 2 + len * Math.cos(A) - (x0 + cols.length * cw));
+      });
+      right = Math.max(0, Math.ceil(right));
+    }
+    return { svg: out, top: top, right: right };
+  }
+
   function heatmap(el, o) {
-    var lw = o.labelW || 140, cw = o.cellW || 64, ch = o.cellH || 40, pad = 20, top = 40, body = '', hots = '';
+    var lw = o.labelW || 140, cw = o.cellW || 64, ch = o.cellH || 40, pad = 20, body = '', hots = '';
     var flat = [].concat.apply([], o.values), lo = Math.min.apply(null, flat), hi = Math.max.apply(null, flat), fmt = o.fmt || String;
-    var W = pad * 2 + lw + o.cols.length * cw, H = top + o.rows.length * ch + pad;
-    o.cols.forEach(function (c, j) { body += '<text class="ex-tm" x="' + (pad + lw + j * cw + cw / 2) + '" y="26" text-anchor="middle">' + esc(c) + '</text>'; });
+    var heads = colHeads(o.cols, pad + lw, cw, o.headers), top = heads.top;
+    var W = pad * 2 + lw + o.cols.length * cw + heads.right, H = top + o.rows.length * ch + pad;
+    body += heads.svg;
     o.rows.forEach(function (r, i) {
       var y = top + i * ch;
       body += '<text class="ex-t" x="' + pad + '" y="' + (y + ch / 2 + 5) + '">' + esc(r) + '</text>';
