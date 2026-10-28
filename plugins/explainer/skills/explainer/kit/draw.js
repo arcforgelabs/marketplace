@@ -79,7 +79,7 @@
   function dots(pathId, count, dur, tone) {
     if (REDUCE) return '';
     var o = '', c = count || 3, d = dur || 3;
-    for (var i = 0; i < c; i++) o += '<circle class="ex-dot' + (tone ? ' ex-dot--' + tone : '') + '" r="4"><animateMotion dur="' + d + 's" begin="' + (i * d / c).toFixed(2) + 's" repeatCount="indefinite"><mpath href="#' + esc(pathId) + '"/></animateMotion></circle>';
+    for (var i = 0; i < c; i++) o += '<circle class="ex-dot' + (tone ? ' ex-dot--' + tone : '') + '" r="4"><animateMotion dur="' + d + 's" begin="-' + (i * d / c).toFixed(2) + 's" repeatCount="indefinite"><mpath href="#' + esc(pathId) + '"/></animateMotion></circle>';
     return o;
   }
   /* A rubber stamp: HYPOTHETICAL, ANALOGY, PROPOSAL, NOT APPROVED, SYNTHETIC. */
