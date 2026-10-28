@@ -141,7 +141,8 @@
         '@media (prefers-color-scheme:dark){' + a + ':not([data-theme="light"]),:root:not([data-theme="light"]) ' + w + '{' + dark + '}}' +
         a + '[data-theme="dark"],:root[data-theme="dark"] ' + w + '{' + dark + '}';
     }).join('\n');
-    var style = document.createElement('style'); style.id = 'ex-themes'; style.textContent = css; document.head.appendChild(style);
+    // A constructed style sheet: a page whose security policy allows only its own inline <style> blocks still applies it.
+    (function (css, id) { try { var sh = new CSSStyleSheet(); sh.replaceSync(css); document.adoptedStyleSheets = document.adoptedStyleSheets.concat(sh); return; } catch (e) {} var st = document.createElement('style'); if (id) st.id = id; st.textContent = css; document.head.appendChild(st); })(css, 'ex-themes');
 
     function want() {
       var c = pick || saved || { id: pageTheme || FB, mode: 'auto' };

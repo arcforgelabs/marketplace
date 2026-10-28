@@ -3,7 +3,7 @@
 Visual explainer pages: diagrams first, every part opens a definition. Includes a chart catalogue, a theme kit and a format guide for replies.
 
 A generic operating skill from [arc-forge-tools](https://github.com/arcforgelabs/tools)
-(`components/skills/explainer`, staged from `83a09c697272`). Fix and review it
+(`components/skills/explainer`, staged from `f1e13dfce1db`). Fix and review it
 there; this package is a generated release payload.
 
 ## Install

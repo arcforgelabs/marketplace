@@ -32,6 +32,8 @@
       ' style="max-width:' + w + 'px;min-width:' + Math.min(minW || w, w) + 'px">' + defs + body.replace(/\{M\}/g, id).replace(/(<rect class="[^"]*)("[^>]*? rx="(\d+)")/g, function (m, a, b, rx) { return a + ' ' + rc(+rx) + b; }) + '<g>' + hots + '</g></svg>';
     return el.firstChild;
   }
+  // A data chart opens in a pop-up window, not on the full-window canvas (kit/canvas.js).
+  function pop(s) { s.setAttribute('data-view', 'pop'); return s; }
   function boxText(x, y, w, h, title, sub) {
     var cy = y + h / 2;
     return sub
@@ -114,7 +116,7 @@
       });
       body += '<text class="' + (used > o.limit ? 'ex-ta' : 'ex-tl') + '" x="' + (pad + lw + bw + 8) + '" y="' + (y + 20) + '">' + Math.round(100 * used / o.limit) + '%</text>';
     });
-    return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
+    return pop(svg(el, W, H, o.label, body, hots, o.minWidth || 760));
   }
 
   /* Heatmap: a value for each row and column pair. Rated great.
@@ -174,7 +176,7 @@
         hots += hot(key(ex, 'cell'), x + 1, y + 1, cw - 2, ch - 2, 4);
       });
     });
-    return svg(el, W, H, o.label, body, hots, o.minWidth || Math.min(760, W));
+    return pop(svg(el, W, H, o.label, body, hots, o.minWidth || Math.min(760, W)));
   }
 
   /* Sankey: flows as bands; band width = amount. Rated great.
@@ -244,7 +246,7 @@
       body += '<text class="ex-tl" x="' + (pad + lw + w + 8) + '" y="' + (y + 17) + '">' + esc(r.value + u) + '</text>';
       hots += hot(key(r.ex || { t: r.label, l: o.layer || 'Value', d: r.label + ' is one row of ' + (o.label || 'this data') + '.', x: ['Its value is ' + r.value + u + '.'] }, 'row' + i), pad, y - 4, lw + w + 60, bh + 8, 4);
     });
-    return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
+    return pop(svg(el, W, H, o.label, body, hots, o.minWidth || 760));
   }
 
   /* CrispTable from rows. {cols: ["Part", "Value"], rows: [{cells: [..], ex}]} */
@@ -338,7 +340,7 @@
       body += '<text class="ex-ts" x="' + (inside ? a + 8 : b + 8) + '" y="' + (y + 16) + '">' + esc(s.title) + '</text>';
       hots += hot(key(s.ex || { t: s.title, l: 'SPAN', d: s.title + ' lasted from ' + s.from + ' to ' + (s.to || 'now') + '.', x: [] }, 'span'), a, y, Math.max(b - a, 40), 24, 6);
     });
-    return svg(el, W, H, o.label, body, hots, o.minWidth || 760);
+    return pop(svg(el, W, H, o.label, body, hots, o.minWidth || 760));
   }
 
   /* Tree: parent and child parts, left to right. Rated good. Use it for causes, ownership or a breakdown.

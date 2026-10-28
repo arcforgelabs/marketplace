@@ -26,6 +26,7 @@ All paths are relative to this skill folder.
 | --- | --- |
 | `references/pattern.md` | The page rules. Read it first, every time. |
 | `references/creative.md` | The creative bar: the first-draft rule, 14 figure patterns, logos, icons, live data charts and the creative check. Read it before you draw. |
+| `references/ste.md` | The Simplified Technical English rules: sentence limits, verb forms, word swaps and a check list. |
 | `references/charts.md` | Every rated chart kind, its tier and its note. Pick a chart from it. |
 | `references/chart-lab.html` | Chart Lab: every rated chart kind drawn on one subject. Copy a hand-drawn vector graphic from it when `kit/charts.js` has no renderer. |
 | `kit/tokens.css` | The token contract, with the Arc Forge values (the fallback theme), light and dark, and the diagram colour key. |
@@ -33,7 +34,7 @@ All paths are relative to this skill folder.
 | `kit/explainer.css` | The `.ex-` styles. Tokens only. |
 | `kit/charts.js` | Data-driven vector-graphic renderers: `connection`, `container`, `capacity`, `heatmap`, `sankey`, `bars`, `timeline`, `tree`, `table`, the view switch `views` and `data`, and `tabs` (one figure per item). |
 | `kit/draw.js` | `ExDraw`: parts for hand-drawn figures: 32 line icons, icon discs, logo plates, arrows, moving dots, stamps, leader lines and blast rings. |
-| `kit/canvas.js` | `ExCanvas`: an Expand button on every figure that holds a vector graphic. It opens the figure on a canvas that fills the window: a hand tool (drag, wheel and pinch zoom), a select tool (click, shift-click, box select; selected parts listed, each opens its pop-up), zoom buttons with Fit, and Esc to close. |
+| `kit/canvas.js` | `ExCanvas`: an icon-only button, with a hover name, on every figure that holds a vector graphic. On a pointer device it shows only while the figure is under the pointer. A data chart (bars, heatmap, capacity, timeline) opens in a pop-up window. Any other figure opens on a canvas that fills the window: a hand tool (drag, wheel and pinch zoom), a select tool (click, shift-click, box select; selected parts listed, each opens its pop-up), zoom buttons with Fit, and Esc to close. |
 | `kit/explainer.js` | The runtime: pop-ups, Facts lists, tick rail, and `themeEngine` (the theme button). |
 | `examples/starter.html` | Copy this to start a page. |
 | `examples/explainer-kit.html` | A full page that uses every renderer. |
@@ -82,7 +83,9 @@ An explainer page is one reply format. Read `references/formats/README.md` and u
 - Every colour, font, radius and chart series reads a variable from `kit/tokens.css`. Never write a hex, `rgb()`, `oklch()` or a colour name in a page or in chart code. `scripts/check` fails on one.
 - Data series use `--series-1` to `--series-5`. Diagram boxes that carry a meaning use the diagram colour key (`--key-*`). Never mix the two.
 - Never add a theme switcher to a component. The page has one theme button; the runtime adds it.
-- Never add a zoom or full-screen control to a figure. `kit/canvas.js` gives every figure the same Expand button and canvas.
+- Never add a zoom or full-screen control to a figure. `kit/canvas.js` gives every figure the same open button: a pop-up for data charts, the canvas for diagrams. The button is an icon with a hover name; never add a text label to it.
+- A style rule on `.ex-figure svg` also reaches the icon inside each figure's open button, because the button sits in the figure. Scope a figure rule to the drawing, or reset it for `.ex-figure .ex-expand svg` (as `kit/canvas.js` does). Before 27 October 2026, `.ex-figure svg { min-width: 760px }` drew the Expand icon 760px wide over the page. `scripts/check` fails when a button icon is larger than 24px.
+- Kit code never adds a `<style>` tag at run time. The claude.ai Artifact viewer blocks it, and the figure button then draws its icon across the whole figure. Kit scripts add their styles with `document.adoptedStyleSheets`. `scripts/check` loads the page under the viewer's kind of style policy and fails when a figure button is not a 28px icon with a hover name. A local screenshot without that policy is not proof.
 
 ## Pick the theme
 
@@ -112,7 +115,7 @@ The source page is the same everywhere. Only the delivery changes.
 ## Words
 
 - Visuals first. Add words only where they help.
-- One fact per sentence. Use Simplified Technical English (ASD-STE100): short sentences and common words. Australian spelling. Each main item still needs about 4 to 8 substantive facts.
+- One fact per sentence. Use Simplified Technical English (ASD-STE100) as `references/ste.md` sets out: word limits, approved verb forms and approved words. Australian spelling. Each main item still needs about 4 to 8 substantive facts.
 - No acronyms. Write the full words in page text, titles, labels, and pop-ups. Where knowing the short form helps, write it once in brackets after the full term, for example "Web Content Accessibility Guidelines (WCAG)". Then keep using the full term.
 - No preamble, no "This diagram shows…", no slogans.
 - No project chatter, internal ids or customer data on a page. Each page stands alone.
@@ -130,3 +133,4 @@ A small idea (one idea, five to nine parts) can be an inline widget instead of a
 - `kit/themes.js` is generated. After a change to `kit/tokens.css`, a theme in `arcforgelabs/themes` or Flow's `server/theme/themes.js`, run `scripts/sync-themes` and `scripts/validate`.
 - The public copy is `arcforgelabs/themes` `explainer/`. After a change here merges, run `scripts/export-public <themes>/explainer` and open a pull request there. Never edit the public copy by hand.
 - A new renderer in `kit/charts.js` must pass `scripts/check` in `examples/explainer-kit.html`. Add a section for it there.
+- Threads load this skill from the `explainer` plugin in arcforgelabs/marketplace, not from this folder. A merge here reaches them only after the marketplace pull request (`sync/tools-skills`) merges. The plugin's `PROVENANCE.json` names the tools commit it came from. After a kit fix merges, check that commit before you say the fix is live.
