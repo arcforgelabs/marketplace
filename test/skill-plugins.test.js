@@ -27,7 +27,8 @@ test("staged skill plugins are complete and listed for every host", async () => 
     const prov = JSON.parse(await readFile(provPath, "utf8"));
     if (prov.kind !== "skill") continue;
     count += 1;
-    assert.equal(prov.sourcePath, `components/skills/${name}`, `${name} provenance path`);
+    // tools moved skills to skills/<name>/ (tools#368); plugins staged before that keep components/skills/<name>.
+    assert.match(prov.sourcePath, new RegExp(`^(components/)?skills/${name}$`), `${name} provenance path`);
     assert.ok(await exists(join(root, "skills", name, "SKILL.md")), `${name} SKILL.md`);
     const frontmatter = (await readFile(join(root, "skills", name, "SKILL.md"), "utf8")).match(/^---\n([\s\S]*?)\n---/);
     assert.ok(frontmatter && /^name:\s*"?/m.test(frontmatter[1]) && /^description:/m.test(frontmatter[1]), `${name} frontmatter`);
