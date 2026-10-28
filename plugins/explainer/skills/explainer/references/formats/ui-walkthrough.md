@@ -40,6 +40,22 @@ At tier C, say that no recording was made and why. Hand the recording to an agen
 3. Run `scripts/record-walkthrough <shots.json> <out.mp4>`. It picks tier A when Xvfb and ffmpeg are present, else tier B. It loads the first screen, waits, then starts the take. A drawn cursor shows each move and each click.
 4. If a step fails, the script discards the take and exits 1. Fix the cause and record again. Never upload a failed take.
 
+### Pace: move like a person
+
+These rules come from Cursor's desktop recorder, which makes smooth walkthroughs (asked 28 October 2026). Its clips look natural for two reasons. A real pointer moves on a real screen. The agent stops to look between actions.
+
+- Never cite a bare Playwright `recordVideo` take. It has no cursor, and each click or `page.goto` jumps to the next screen in one frame. Customers read this as "too fast".
+- Record the screen, not the page: one headed Chromium window at 1280×800 on a display, and ffmpeg `x11grab` at 30 frames a second.
+- Show a cursor in every frame. A desktop driver (`xdotool`, computer use) moves the system pointer. A Playwright driver needs the drawn cursor that `scripts/record-walkthrough` adds.
+- Move the cursor on an ease-in-out path: about 20 points over 300 to 500 ms. Playwright `mouse.move` with `steps` sends all the points at once, so the cursor jumps.
+- Stop on the target for about 400 ms before a click. Hold the result for 600 to 1100 ms.
+- Type real keystrokes, about 50 ms each.
+- Keep one tab. Go to the next screen with a click in the app, not with a new address.
+- Start the take on the first useful screen. Stop it when the result shows. Trim with ffmpeg `-ss` and `-t`.
+- Ring one control only: the control that the clip names.
+
+`scripts/record-walkthrough` uses these values. The public plugin does not ship `scripts/`. Without the script, apply the same numbers in your own driver.
+
 ### Driver: script or computer use
 
 - **Script (default).** `scripts/record-walkthrough` moves the mouse with Playwright and draws a cursor in the page. It costs no model calls. It needs a CSS or text selector for each target.

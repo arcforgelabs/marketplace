@@ -1,14 +1,14 @@
 {
   "sourceRepo": "arcforgelabs/tools",
-  "sourceCommit": "f1e13dfce1db5ffc4e5e425657549f0b419c2b4a",
+  "sourceCommit": "1788dfce929236a1fc0743860b3669caff5c46a3",
   "sourcePath": "components/skills/explainer",
   "kind": "skill",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "files": {
-    ".claude-plugin/plugin.json": "50181b2be9e24ac56fa07dffb8fda328c5cd10a3ed221d1f8697f6ed123dc180",
-    "README.md": "b2419a0459438daadee14cdcf63759c120a40e47fe54eb55027cb4ec58a2284d",
-    "package.json": "457db5427126d8d609fc004174465fceeb777308020f63a5a9c0627c33435381",
-    "plugin.json": "9261028d98918826398c8737052825754b1d8658f84a40dcf48291ab5ca13687",
+    ".claude-plugin/plugin.json": "41f99d49349944af9e51de99845694c3f58538ac68e65a9332af0e215089d5d4",
+    "README.md": "bbe408e968f0badec81796ce24f6f17de7dc9978e1a354c96a820d63f015b6c0",
+    "package.json": "19b1597ce0738fc4c85c0be6f7f0c52a5c9de4e90eaf24d6bf8a37d6f3be69e6",
+    "plugin.json": "f89969d4f60c746c08f8820fbff4c1c1ab7aa391a2ffc64e11444260ddf2bc8c",
     "skills/explainer/README.md": "93768e76b3a38b3040c6049d9563550acbb4a73e97afbe88224ce003a6c2fab2",
     "skills/explainer/SKILL.md": "79418e7c94aeec16b0fda0af402983bf7d87900c5e1c98cd503bf92542b77b61",
     "skills/explainer/examples/explainer-kit.html": "840020df1c435a58ed15d2ac1a0192fa36126373939eee93298afaaf8e46ea85",
@@ -26,7 +26,7 @@
     "skills/explainer/references/charts.md": "7581568b3215dd081e41c039a7c15345c624a4c608c6f0ab6ba3687328f778f6",
     "skills/explainer/references/creative.md": "ac7ba179b1d66de3a32f6249fd4dc7e5e0c59f4fc444640b3fe58f9b91aba86e",
     "skills/explainer/references/formats/README.md": "0d71b74e99e24487e287f1072797a8645b6dbc36dac5e365d4bcabe240fc52d5",
-    "skills/explainer/references/formats/ui-walkthrough.md": "e7ff7175d38bc97529a73b01ae427d83a7678d41c6d18405b97c6428df106604",
+    "skills/explainer/references/formats/ui-walkthrough.md": "e1df8a48c306a016e18b1b36ce7b7296c60716836ad8b1b14d6f4cc2a694a6af",
     "skills/explainer/references/pattern.md": "58469176e71cf5ed8051910de298fb5692fd847b349fbccc4e27b08d9a77796a",
     "skills/explainer/references/ste.md": "c32c3cbfc6c4fb79c03de031c871346e8f2a0c206ea7b425db5d83a5713b5bb0"
   }
